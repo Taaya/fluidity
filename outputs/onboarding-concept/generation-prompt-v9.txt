@@ -1,0 +1,9 @@
+Created with the built-in image generation tool as an edit of v8. Concept image only.
+
++Use case: text-localization
+Asset type: onboarding modal concept
+Input image: the supplied image is the edit target.
+Primary request: Replace ONLY the body copy beneath the middle heading "Practice out loud".
+Text (verbatim): "We create everyday scenarios around your words. Answer our questions out loud, then note when the words come naturally."
+Typography and layout: Match the existing dark blue sans-serif body typography, size, weight, centered alignment, column width, and line spacing. Reflow into balanced lines within the existing middle column without overlapping the blue CTA below.
+Constraints: Preserve every other pixel and element as faithfully as possible. Do not change the middle mascot's eyes, slightly open gentle smiling mouth, pose, task card, answer bubble, any illustration, title, headings, numbers, vocabulary, step 1 or step 3 copy, CTA, link, border, colors, textures, spacing, or composition. No added text and no redesign.

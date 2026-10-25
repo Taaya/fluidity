@@ -1,0 +1,20 @@
+Generated using the built-in image generation tool. Visual exploration, not an implemented interface.
+
+Use case: ui-mockup. Create a polished onboarding modal visual concept for an adult English vocabulary speaking practice app. Preview concept only, entire image flat front-on UI, no devices, no perspective. Landscape 1536x1024 composition. Warm paper background #fbf7ed with a centered generous off-white modal #fffdf7, thin subtle warm gray border, soft rounded corners. Airy editorial design inspired by playful minimalist language-learning illustrations: organic anthropomorphic flower/speech-bubble characters, thin dark green hand-drawn limbs, confident simple silhouettes, flat colors, no gradients, no 3D, no stock icons. Palette cobalt #234bcc, forest green #39775b, butter yellow #ffdb59, ink #292d28. Elegant soft serif headings reminiscent of Fraunces; clear humanist sans body reminiscent of DM Sans. Adult, warm and witty, not childish.
+Modal top small uppercase 'HOW IT WORKS', close X at top right. Large cobalt serif title centered: 'From knowing a word to using it.' 
+Three equal columns below, each with an original narrative illustration, step number, heading and 2-line/3-line body. Illustrations feel like a cohesive story following the same blue organic speech-bubble character with tiny hand-drawn limbs, and warm green accents. First: character gathers little word cards from an open book into a personal collection, tiny yellow sparkle. Second: character speaks facing a contextual question card with a question-mark symbol, speech bubble and green circular repeat arrow conveying spoken practice, no microphone or headphones or recording implication. Third: same blue character and a green character chatting naturally, flowing interlocking speech bubbles and one little yellow flower. Generous whitespace.
+Exact text under first illustration:
+'01'
+'Collect useful words'
+'Add words and phrases from lessons, books, or everyday life.'
+Exact text under second:
+'02'
+'Practice out loud'
+'Answer short prompts using your words. Come back often to practice in new situations.'
+Exact text under third:
+'03'
+'Make them part of your English'
+'Build confidence using your words in everyday conversations.'
+At bottom center cobalt rounded rectangular real-looking button with white text 'Add my first words' and a small right arrow.
+Below button secondary quiet text link 'Maybe later'.
+Keep all text accurately spelled, readable and comfortably spaced, no extra logos or branding, no other panels. Illustrations have slightly irregular hand-drawn curves and solid fills. This is a concept image of a complete modal intended to be rebuilt with live accessible text later.

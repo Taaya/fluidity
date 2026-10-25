@@ -1,0 +1,1066 @@
+{
+  "Danube": [
+    {
+      "text": "A visitor asks which river you would take them to see. Recommend this river as a place for an afternoon walk.",
+      "starter": "I'd recommend a walk along...",
+      "action": "recommend",
+      "context": "river visit; host a friend; recommend an afternoon"
+    },
+    {
+      "text": "You can stay beside this river or on a street farther away. Describe the location you would choose.",
+      "starter": "I'd like to stay...",
+      "action": "compare",
+      "context": "river accommodation; compare views and quiet; choose a place to stay"
+    },
+    {
+      "text": "Imagine travelling along this river by boat. Describe the stretch of river you would most enjoy seeing.",
+      "starter": "I'd enjoy seeing...",
+      "action": "describe",
+      "context": "river boat journey; imagine experience on the water"
+    },
+    {
+      "text": "This river runs through a neighbourhood you are imagining. Describe how the river fits into the area.",
+      "starter": "In this neighbourhood, the...",
+      "action": "recommend",
+      "context": "river public space; propose community improvement"
+    },
+    {
+      "text": "You're looking at this river from a bridge at sunset. Describe the river's appearance.",
+      "starter": "From the bridge, I can see...",
+      "action": "describe",
+      "context": "river sunset photograph; describe a picture and creative intent"
+    },
+    {
+      "text": "A café stands beside this river. Tell a visitor where the café is and what the river view is like.",
+      "starter": "The café is beside...",
+      "action": "recommend",
+      "context": "river cafe; design an outdoor music evening"
+    },
+    {
+      "text": "Imagine your home and a friend's home are on opposite banks of this river. Describe where you live relative to each other.",
+      "starter": "The river separates...",
+      "action": "explain",
+      "context": "river separates friends; maintain a friendship across a crossing"
+    },
+    {
+      "text": "You are meeting friends for a picnic beside this river. Tell them where along the river to meet you.",
+      "starter": "Let's meet beside...",
+      "action": "explain",
+      "context": "river picnic; communicate a weather backup plan"
+    },
+    {
+      "text": "Imagine noticing litter near the banks of this river. Describe the river's condition to your neighbours.",
+      "starter": "Along the banks of...",
+      "action": "recommend",
+      "context": "river litter; organise neighbours for a cleanup"
+    },
+    {
+      "text": "Describe how this river might look from a boat compared with the view from its bank.",
+      "starter": "From a boat, the...",
+      "action": "compare",
+      "context": "river exploration; compare boat travel and flexible photography stops"
+    }
+  ],
+  "among": [
+    {
+      "text": "In which groups of people do you feel most comfortable speaking openly? Describe where you feel at ease.",
+      "starter": "I feel most comfortable...",
+      "action": "reflect",
+      "context": "within a social group; compare openness and restraint"
+    },
+    {
+      "text": "A new member joins your hobby club. Describe how they might feel as the only beginner in an experienced group.",
+      "starter": "As the only beginner, they might feel...",
+      "action": "recommend",
+      "context": "within a social group; welcome a newcomer and build belonging"
+    },
+    {
+      "text": "Four friends are planning a picnic. How would you divide the jobs within the group?",
+      "starter": "I'd divide the jobs...",
+      "action": "explain",
+      "context": "distribution within a group; allocate picnic responsibilities fairly"
+    },
+    {
+      "text": "A reading group disagrees about a book's ending. Describe the different opinions within the group.",
+      "starter": "There are different opinions...",
+      "action": "describe",
+      "context": "opinions within a group; report disagreement and moderate discussion"
+    },
+    {
+      "text": "Your friends are somewhere in a busy park crowd. Describe where you might spot them.",
+      "starter": "I might spot my friends...",
+      "action": "explain",
+      "context": "location within a crowd; find friends and coordinate a meeting"
+    },
+    {
+      "text": "Several neighbours are paying for a shared garden. How would you distribute the costs within the group?",
+      "starter": "I'd share the cost...",
+      "action": "recommend",
+      "context": "distribution within a group; share community costs and contributions"
+    },
+    {
+      "text": "Think of a habit that is common in your friendship group. Describe how widespread it is.",
+      "starter": "One habit that's common...",
+      "action": "describe",
+      "context": "prevalence within a group; explain a shared habit"
+    },
+    {
+      "text": "Everyone else in your new class has years of experience. Describe your position as a beginner in that group.",
+      "starter": "As a beginner, I find myself...",
+      "action": "reflect",
+      "context": "position within an experienced group; learn and contribute as a beginner"
+    },
+    {
+      "text": "Several neighbours have heard a rumour about a local shop. Describe how it could spread through the group.",
+      "starter": "The rumour could spread...",
+      "action": "explain",
+      "context": "circulation within a group; respond to an unverified rumour"
+    },
+    {
+      "text": "Six friends each suggest a different film. Describe whether there is any agreement within the group.",
+      "starter": "There seems to be...",
+      "action": "recommend",
+      "context": "choice within a set; negotiate a shared film selection"
+    }
+  ],
+  "cracked": [
+    {
+      "text": "Your phone falls onto stone. A thin line appears across the screen, but it still works. Describe the screen's condition.",
+      "starter": "The screen...",
+      "action": "explain",
+      "context": "physical split; dropped phone; decide whether to repair"
+    },
+    {
+      "text": "A mug arrives with a thin split down one side. Describe its condition to the seller.",
+      "starter": "The mug arrived...",
+      "action": "complain",
+      "context": "physical split; damaged delivery; request a replacement from seller"
+    },
+    {
+      "text": "You discover a thin line across your flat's window. Describe the damage and where it is.",
+      "starter": "The window...",
+      "action": "explain",
+      "context": "physical split; rented window; report damage with uncertain cause"
+    },
+    {
+      "text": "A borrowed bowl hits the sink and develops a thin line near the rim. Describe the damage to its owner.",
+      "starter": "The bowl...",
+      "action": "apologise",
+      "context": "physical split; borrowed bowl; take responsibility and apologise"
+    },
+    {
+      "text": "Delicate plates knock together during a move. What kind of damage would padding protect them from?",
+      "starter": "Padding would stop the plates from...",
+      "action": "recommend",
+      "context": "physical splitting; moving fragile crockery; prevent damage"
+    },
+    {
+      "text": "After a very cold week, a thin split runs down an outdoor plant pot. Describe what happened to the pot.",
+      "starter": "The pot...",
+      "action": "describe",
+      "context": "physical split; plant pot after cold weather; explain discovery and care for plant"
+    },
+    {
+      "text": "You need to open an egg for a cake mixture. Describe how you would break its shell.",
+      "starter": "I'd gently...",
+      "action": "explain",
+      "context": "physical breaking; eggshell during baking; recover from a cooking mistake"
+    },
+    {
+      "text": "A thin line has appeared across a hallway tile. Describe the tile's condition to a neighbour.",
+      "starter": "One of the tiles...",
+      "action": "recommend",
+      "context": "physical split; shared hallway tile; coordinate an inspection"
+    },
+    {
+      "text": "An old family teacup has a small split through which tea leaks. Describe why it no longer holds liquid.",
+      "starter": "The cup leaks because...",
+      "action": "reflect",
+      "context": "physical split; sentimental teacup; preserve memory through reuse"
+    },
+    {
+      "text": "A second-hand wooden table has a long split across its top. Describe the damage you can see.",
+      "starter": "The table's top...",
+      "action": "compare",
+      "context": "physical split; second-hand table; assess sellers claim before purchase"
+    }
+  ],
+  "to distill an idea": [
+    {
+      "text": "A friend's long messages contain one central complaint about a roommate. How would you reduce them to the main point?",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "A friend sends several long messages about a disagreement with their roommate. Explain how you would identify the central issue, give a short summary, and decide which details matter."
+    },
+    {
+      "text": "A family trip chat contains many suggestions. How would you turn the discussion into one clear proposal?",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "Your family trip chat contains dozens of conflicting suggestions. Explain how you would turn them into a clear plan, what you would prioritise, and what you would leave out."
+    },
+    {
+      "text": "You want to share a documentary's central message briefly. How would you capture its main idea?",
+      "starter": "I'd try to...",
+      "action": "reflect",
+      "context": "You watched a documentary and want to share its central message with a friend. Explain how you would choose the key point and which example you would use to make it clear."
+    },
+    {
+      "text": "Your hobby club has collected dozens of suggestions. How would you bring them together into one simple proposal?",
+      "starter": "We need to...",
+      "action": "explain",
+      "context": "Your hobby club has collected many suggestions for its next event. Explain how you would turn them into one proposal and why it would capture what members want."
+    },
+    {
+      "text": "Many hotel reviews repeat the same few points. How would you turn them into a concise recommendation?",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "You have read many reviews of a hotel. Explain how you would turn the useful information into a short recommendation, which details you trust, and what uncertainty remains."
+    }
+  ],
+  "to articulate nuance": [
+    {
+      "text": "A holiday was enjoyable in some ways and disappointing in others. How would you express that mixed view precisely?",
+      "starter": "I'd try to...",
+      "action": "recommend",
+      "context": "A friend needs to explain why a holiday was enjoyable but disappointing in some ways. How could they express both sides clearly? Suggest details that would help another person understand the mixed experience."
+    },
+    {
+      "text": "A film character's action seems selfish but understandable in context. How would you express that distinction?",
+      "starter": "I'd want to...",
+      "action": "disagree",
+      "context": "Two friends disagree about whether a film character behaved selfishly. Explain how you would express a more balanced view, taking both the action and the circumstances into account."
+    },
+    {
+      "text": "A message feels cold to one friend and ordinary to another. How would you explain the subtle difference in their interpretations?",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "A message sounds cold to one friend but perfectly normal to another. Explain how you would describe these different readings and what additional context might change your interpretation."
+    },
+    {
+      "text": "Two nearly identical colours create different impressions. How would you put that subtle difference into words?",
+      "starter": "I'd try to...",
+      "action": "compare",
+      "context": "A friend says two very similar colours feel different but cannot explain why. Describe how you would help them put the difference into words and what examples might make it clearer."
+    },
+    {
+      "text": "Your impression of a neighbour includes both warmth and awkwardness. How would you express it without an oversimplified label?",
+      "starter": "I'd want to...",
+      "action": "reflect",
+      "context": "Your family asks whether a new neighbour is friendly. You have had both warm and awkward encounters. Explain how you would describe your impression fairly and why a simple label would miss something."
+    }
+  ],
+  "a steep learning curve": [
+    {
+      "text": "A friend feels lost after their first salsa lesson. Describe the challenge of learning many unfamiliar moves at once.",
+      "starter": "At the beginning, there can be...",
+      "action": "recommend",
+      "context": "Your friend joins a salsa class and feels lost after the first lesson. Describe why the beginning can feel demanding and suggest how they could make the next few lessons easier."
+    },
+    {
+      "text": "Your first week with a rescue puppy involves many unfamiliar routines. Describe how demanding the initial learning feels.",
+      "starter": "The first week involves...",
+      "action": "describe",
+      "context": "You start caring for a rescue puppy and the first week involves many unfamiliar routines. Describe what you would need to learn quickly, what might be hardest, and how you would get help."
+    },
+    {
+      "text": "A city's metro has unfamiliar routes, tickets and rules. Describe what a newcomer faces when learning to use it.",
+      "starter": "For a newcomer, there is...",
+      "action": "explain",
+      "context": "A friend moves to a city with a confusing metro system. Describe what the first days might be like, explain why it takes time to adjust, and suggest a way to build confidence."
+    },
+    {
+      "text": "Compare the initial difficulty of learning to make toast and learning to bake sourdough.",
+      "starter": "With sourdough, there is...",
+      "action": "compare",
+      "context": "Compare learning to make toast with learning to bake sourdough bread. Explain how the effort at the beginning differs and how that would affect your expectations and practice."
+    },
+    {
+      "text": "You join a photography class with no knowledge of camera settings. Describe the learning challenge at the start.",
+      "starter": "At first, I would face...",
+      "action": "recommend",
+      "context": "You join a photography club and discover that everyone uses camera settings you do not understand. Describe the initial challenge and explain how you would approach your first month of learning."
+    }
+  ],
+  "to gain traction": [
+    {
+      "text": "A book swap grows from two visitors to regular participation across the building. Describe how the idea is developing.",
+      "starter": "The book swap is...",
+      "action": "explain",
+      "context": "A neighbour starts a weekend book swap that initially attracts only two people. A month later, more residents are joining. Describe how the idea is developing and suggest what could help it continue."
+    },
+    {
+      "text": "A kitten adoption post starts being shared widely by local residents. Describe the response it is getting.",
+      "starter": "The post is starting to...",
+      "action": "describe",
+      "context": "A post about finding a home for a kitten starts being shared across your neighbourhood. Describe how interest might grow, what could cause it, and how the organiser should respond."
+    },
+    {
+      "text": "A new travel blog begins attracting returning readers and comments. Describe the change in its popularity.",
+      "starter": "The blog is beginning to...",
+      "action": "describe",
+      "context": "Your friend starts a travel blog and wants to know whether people are becoming interested. Explain which signs you would look for, why they matter, and what the friend could try next."
+    },
+    {
+      "text": "Only a few friends attend a new weekly picnic, but more ask to join each week. Describe how the tradition is developing.",
+      "starter": "The idea seems to be...",
+      "action": "agree",
+      "context": "A few friends start a weekly picnic, but attendance is still small. Explain why you might give the idea more time and suggest how to help it attract regular participants."
+    },
+    {
+      "text": "One new hobby group attracts more members every week, while another has little interest. Compare their progress.",
+      "starter": "The first group is...",
+      "action": "compare",
+      "context": "Two hobby groups started at the same time, but only one is attracting new members. Compare how they are developing and suggest what the quieter group could learn from the other."
+    }
+  ],
+  "to challenge the premise": [
+    {
+      "text": "A friend assumes moving cities will automatically make them happy. How would you question that starting assumption?",
+      "starter": "I'd want to...",
+      "action": "reflect",
+      "context": "A friend says moving to another city will automatically make them happy. Explain how you would respond to that assumption, what you would ask, and what else they should consider."
+    },
+    {
+      "text": "Your family assumes the most expensive hotel must be the best. How would you question the basis of that claim?",
+      "starter": "I'd start by trying to...",
+      "action": "ask",
+      "context": "Your family assumes the most expensive hotel must be the best choice. Explain how you would question that starting point and suggest a better way to decide together."
+    },
+    {
+      "text": "Someone assumes a cat scratches furniture simply because it is badly behaved. How would you question that explanation?",
+      "starter": "I'd want to...",
+      "action": "recommend",
+      "context": "Someone says a cat is badly behaved because it scratches the sofa. Explain how you would question their interpretation, suggest another possible explanation, and propose a useful next step."
+    },
+    {
+      "text": "A friend thinks a slow reply proves someone is angry. How would you question that assumption?",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "A friend assumes that a slow reply means someone is angry with them. Explain how you would question this conclusion and help them consider other explanations before reacting."
+    },
+    {
+      "text": "Your friends assume a birthday can only be fun in a loud club. How would you question that starting point?",
+      "starter": "I'd want to...",
+      "action": "disagree",
+      "context": "Your friends say a birthday celebration has to be held in a loud club to be fun. Explain how you would question that assumption and help them plan around what the birthday person enjoys."
+    }
+  ],
+  "a compelling case": [
+    {
+      "text": "A roommate is unsure about fostering a kitten. Describe the kind of argument that could persuade them.",
+      "starter": "I'd need to make...",
+      "action": "explain",
+      "context": "Your roommate is unsure about fostering a kitten for two weeks. Explain which reasons could persuade them, how you would support those reasons, and how you would address their main concern."
+    },
+    {
+      "text": "Your friend gives convincing reasons to visit a small town instead of a famous city. Describe the argument they have made.",
+      "starter": "They've made...",
+      "action": "recommend",
+      "context": "Your friend is deciding between a small town and a famous city for a weekend away. Explain which arguments could make the smaller place attractive and how you would respond to doubts."
+    },
+    {
+      "text": "Excellent reviews and a thoughtful menu persuade your family to try a restaurant. Describe the strength of those reasons.",
+      "starter": "Together, those reasons make...",
+      "action": "recommend",
+      "context": "Your family always chooses the same restaurant. Describe what evidence would persuade them to try a new place and how you would present it without dismissing their preferences."
+    },
+    {
+      "text": "A language club offers vague promises but no evidence of useful practice. Explain what its invitation is missing.",
+      "starter": "The invitation needs...",
+      "action": "compare",
+      "context": "A language club advertises itself as fun, but you want stronger reasons to join. Explain what would persuade you, which details would support the recommendation, and what you would still ask."
+    },
+    {
+      "text": "You support a friend's suitability for a group trip with specific examples. Describe the argument you are building.",
+      "starter": "I'm trying to make...",
+      "action": "recommend",
+      "context": "A friend wants to join your next group trip, but the others do not know them. Explain why they would make a good travel companion, support your view with examples, and address a possible concern."
+    }
+  ],
+  "to bridge the gap": [
+    {
+      "text": "Your grandparents and younger cousin struggle to understand each other's approach to video calls. How could you help them connect?",
+      "starter": "I could help...",
+      "action": "recommend",
+      "context": "Your grandparents are new to video calls and your younger cousin gets impatient helping them. Explain how you would help them understand each other and make their next call easier."
+    },
+    {
+      "text": "Two friendship groups sit separately at a party. How could a shared interest help them connect?",
+      "starter": "A shared interest could...",
+      "action": "recommend",
+      "context": "Two groups of friends meet at a party but keep sitting separately. Suggest how to help them connect, explain why your approach could work, and describe how you would include quieter people."
+    },
+    {
+      "text": "You know only a few words of the local language. How could gestures help you and a local person understand each other?",
+      "starter": "Gestures could help...",
+      "action": "describe",
+      "context": "You travel somewhere you know only a few words of the local language. Explain how you would make communication easier, describe a likely interaction, and say how you would check understanding."
+    },
+    {
+      "text": "A new hobby-club member feels different from everyone else. How could a shared activity help them find common ground?",
+      "starter": "A shared activity might...",
+      "action": "recommend",
+      "context": "A friend wants to join a hobby group but feels very different from its existing members. Explain how you could help them find common ground and what the group could do to welcome them."
+    },
+    {
+      "text": "A teenager and parent misunderstand each other's views on screen time. How could listening help them understand each other?",
+      "starter": "Listening could help...",
+      "action": "recommend",
+      "context": "A teenager and a parent keep misunderstanding each other about screen time. Explain how you would help each understand the other and suggest a conversation that could lead to an agreement."
+    }
+  ],
+  "to think on your feet": [
+    {
+      "text": "Your train is cancelled and friends immediately ask for another plan. How would you handle having to respond without preparation?",
+      "starter": "I'd have to...",
+      "action": "describe",
+      "context": "Your train is cancelled during a trip and your friends expect you to suggest a plan immediately. Explain how you would handle the pressure, choose a next step, and communicate it to the group."
+    },
+    {
+      "text": "At dinner, you're unexpectedly asked to give a toast. How would you handle being put on the spot?",
+      "starter": "I'd need to...",
+      "action": "describe",
+      "context": "At a dinner, you are unexpectedly asked to make a short toast. Explain how you would come up with something appropriate, what you might say, and how you would handle feeling nervous."
+    },
+    {
+      "text": "A dog suddenly runs into a café towards a table of food. How would you handle having to react immediately?",
+      "starter": "In that moment, I'd have to...",
+      "action": "describe",
+      "context": "A dog suddenly runs into a café and heads toward a table of food. Explain how you would react quickly, what you would prioritise, and how you would help the people around you."
+    },
+    {
+      "text": "An unclear board-game rule needs an immediate decision. How would you respond without time to prepare?",
+      "starter": "I'd have to...",
+      "action": "recommend",
+      "context": "During a board game, an unclear rule stops play and everyone looks to you for a decision. Explain how you would respond without preparation and suggest a fair way to keep the game moving."
+    },
+    {
+      "text": "You're guiding visitors when your planned stop turns out to be closed. How would you handle the unexpected change?",
+      "starter": "As the guide, I'd need to...",
+      "action": "reflect",
+      "context": "You are showing visitors around when the place you planned to visit turns out to be closed. Explain how you would improvise an alternative and keep the group interested while you decide."
+    }
+  ],
+  "to weigh the trade-offs": [
+    {
+      "text": "A cheap early flight saves money, but an afternoon train is more comfortable. Describe how you would balance these options.",
+      "starter": "I'd need to...",
+      "action": "compare",
+      "context": "You can take a cheap flight at five in the morning or a more expensive train in the afternoon. Explain how you would compare the benefits and drawbacks before choosing."
+    },
+    {
+      "text": "A friend wants a dog and also values spontaneous travel. Describe how they should consider the competing benefits and limits.",
+      "starter": "They need to...",
+      "action": "recommend",
+      "context": "A friend wants to adopt a dog but also loves spontaneous weekend trips. Explain how you would help them consider what they would gain, what would become harder, and how they might decide."
+    },
+    {
+      "text": "A party offers time with friends, while staying home offers rest. Describe how you would balance what each option gives you.",
+      "starter": "Before choosing, I'd...",
+      "action": "reflect",
+      "context": "You can go to a big party or rest at home before a busy week. Explain what each option offers, what you would give up, and how you would make the choice."
+    },
+    {
+      "text": "A spacious apartment is far from friends; a smaller one is nearby. Describe how you would compare what you gain and give up.",
+      "starter": "I'd need to...",
+      "action": "compare",
+      "context": "You can rent a beautiful apartment far from friends or a smaller place near them. Explain how you would balance comfort, daily routines and social life before deciding."
+    },
+    {
+      "text": "An expensive holiday would delay a shared savings goal. Describe how you would balance the two priorities.",
+      "starter": "Together, we'd need to...",
+      "action": "explain",
+      "context": "You and your partner want an expensive holiday but are also saving for a shared goal. Explain how you would compare the options and reach a decision you could both accept."
+    }
+  ],
+  "to be mindful of scope": [
+    {
+      "text": "A friend plans five cities in one weekend. Explain why the trip needs clear, realistic limits.",
+      "starter": "When planning, they need to...",
+      "action": "recommend",
+      "context": "Your friend wants to visit five cities in one weekend. Explain how you would help them set a realistic limit, choose what matters most, and decide what to save for another trip."
+    },
+    {
+      "text": "A small birthday dinner keeps growing into a large event. Describe what the organiser should keep in mind about its limits.",
+      "starter": "The organiser needs to...",
+      "action": "recommend",
+      "context": "A simple birthday dinner is turning into a large event with decorations, games and many guests. Explain how you would bring the plan back to a manageable size and which parts you would keep."
+    },
+    {
+      "text": "A small family lunch now includes ten dishes. Explain why you would keep the plan within manageable limits.",
+      "starter": "We need to...",
+      "action": "recommend",
+      "context": "Your family wants to cook ten dishes for a small lunch. Explain how you would keep the preparation manageable, choose a simpler menu, and persuade everyone it would still feel special."
+    },
+    {
+      "text": "A friend plans to redecorate a whole room in one day. Explain why defining a manageable amount of work matters.",
+      "starter": "They need to...",
+      "action": "recommend",
+      "context": "A friend hopes to redecorate their entire room in one day. Explain how you would help them choose a realistic first project and decide which jobs should wait."
+    },
+    {
+      "text": "A hobby club keeps adding activities to its first exhibition. Describe why the organisers should pay attention to the project's boundaries.",
+      "starter": "The organisers should...",
+      "action": "compare",
+      "context": "Your hobby club is planning its first exhibition but keeps adding new activities. Explain how you would agree on the event limits, prioritise the essentials, and handle extra ideas."
+    }
+  ],
+  "steeple": [
+    {
+      "text": "A visitor is looking for an old church. Describe the tall pointed landmark they should look for above the houses.",
+      "starter": "Above the houses, look for...",
+      "action": "explain",
+      "context": "pointed church tower; guide a visitor using a landmark"
+    },
+    {
+      "text": "A pointed church tower rises above the village rooftops. Describe its shape and position in the skyline.",
+      "starter": "Above the rooftops, the...",
+      "action": "describe",
+      "context": "pointed church tower; compose a village photograph"
+    },
+    {
+      "text": "The pointed top of an old church is leaning slightly. Tell the neighbours which part of the building needs attention.",
+      "starter": "The part that needs attention is...",
+      "action": "reflect",
+      "context": "church tower; discuss funding repairs to community heritage"
+    },
+    {
+      "text": "Your bedroom window faces a church's pointed tower. Describe the part of the building you see each morning.",
+      "starter": "From my window, I can see...",
+      "action": "describe",
+      "context": "church tower; describe a daily view from home"
+    },
+    {
+      "text": "Friends are looking for a church beside a crowded market. Describe its location using the pointed tower above the stalls.",
+      "starter": "The church is...",
+      "action": "recommend",
+      "context": "church tower; reunite separated friends at a market"
+    },
+    {
+      "text": "A new building may hide the pointed church tower from the square. Describe what would disappear from the view.",
+      "starter": "From the square, we would no longer see...",
+      "action": "reflect",
+      "context": "church tower; discuss a proposed change to a village skyline"
+    },
+    {
+      "text": "A child points to the tall pointed part of a church in a picture. Describe that part of the building.",
+      "starter": "That tall part is...",
+      "action": "describe",
+      "context": "church tower; help a child observe and draw a building"
+    },
+    {
+      "text": "A postcard shows a church with a tall pointed tower. Describe how that feature stands out against the rest of the building.",
+      "starter": "Above the rest of the church...",
+      "action": "compare",
+      "context": "church tower; choose a town postcard design"
+    },
+    {
+      "text": "A church has a pointed tower you can climb on a guided visit. Tell a friend which part you would explore.",
+      "starter": "I'd like to climb...",
+      "action": "explain",
+      "context": "church tower; decide whether to join a guided climb"
+    },
+    {
+      "text": "You recognise your old village by the pointed church tower. Describe the landmark that looks familiar.",
+      "starter": "The landmark I recognise is...",
+      "action": "reflect",
+      "context": "church tower; reflect on returning to a changed place"
+    }
+  ],
+  "chat someone up": [
+    {
+      "text": "At a party, your friend keeps making someone laugh and asking personal questions. You think there's romantic interest. Describe what your friend is doing.",
+      "starter": "I think my friend is...",
+      "action": "describe",
+      "context": "party; recognise flirtatious conversation"
+    },
+    {
+      "text": "You fancy someone at a wedding but haven't spoken yet. Tell a friend how you'd start a conversation that shows your interest.",
+      "starter": "I'd try to...",
+      "action": "explain",
+      "context": "wedding; initiate romantic conversation"
+    },
+    {
+      "text": "A stranger complimented you and kept the conversation going all evening. Tell a friend whether you thought they were flirting.",
+      "starter": "I think they were...",
+      "action": "interpret",
+      "context": "evening conversation; interpret attention directed at you"
+    },
+    {
+      "text": "Your friend says they're too shy to flirt in person. Describe how confident you feel starting a playful conversation with someone you find attractive.",
+      "starter": "I'm usually too shy to...",
+      "action": "reflect",
+      "context": "confidence; describe personal approach to flirting"
+    },
+    {
+      "text": "Someone at a café seemed interested in you, but you only wanted to finish your book. Describe the interaction to a friend.",
+      "starter": "Someone tried to...",
+      "action": "recount",
+      "context": "cafe; unwanted attempt at conversation"
+    },
+    {
+      "text": "Your friend thinks their date was just being polite when they first met. Remind them about the teasing and personal compliments.",
+      "starter": "It sounded like your date was...",
+      "action": "interpret",
+      "context": "first meeting; reinterpret apparently friendly talk"
+    },
+    {
+      "text": "A friend wants to flirt by reciting a rehearsed speech. Suggest a more natural way to talk to the person they like.",
+      "starter": "If you want to...",
+      "action": "advise",
+      "context": "rehearsed flirting; recommend natural conversation"
+    },
+    {
+      "text": "You meant to have a friendly conversation, but someone thought you were flirting. Explain the misunderstanding to a friend.",
+      "starter": "They thought I was trying to...",
+      "action": "explain",
+      "context": "friendly intention; deny romantic conversational intent"
+    },
+    {
+      "text": "Your friend spent the whole evening flirting with the host instead of joining your group. Describe where their attention went.",
+      "starter": "My friend spent the evening...",
+      "action": "recount",
+      "context": "group gathering; attention focused on host"
+    },
+    {
+      "text": "You and your partner remember your first conversation differently. Playfully say who first showed romantic interest by starting the conversation.",
+      "starter": "You were the one who...",
+      "action": "recount",
+      "context": "couple; dispute who initiated flirtatious conversation"
+    }
+  ],
+  "hit on someone": [
+    {
+      "text": "A stranger asks if you're single and says they'd love to take you out. Tell a friend how you interpret this approach.",
+      "starter": "I think that stranger is...",
+      "action": "interpret",
+      "context": "direct approach; recognise romantic advance"
+    },
+    {
+      "text": "You gave someone a friendly compliment, but they assumed you wanted a date. Clarify your intention in one short response.",
+      "starter": "I wasn't trying to...",
+      "action": "clarify",
+      "context": "compliment misunderstood; deny romantic advance"
+    },
+    {
+      "text": "Your friend keeps making romantic advances after someone says they're not interested. Tell your friend which behaviour needs to stop.",
+      "starter": "You need to stop...",
+      "action": "advise",
+      "context": "rejected advances; tell friend to stop"
+    },
+    {
+      "text": "Someone keeps interrupting your workout to make flirty comments. Tell a friend what's been happening at the gym.",
+      "starter": "Someone at my gym keeps...",
+      "action": "recount",
+      "context": "gym; describe repeated unwanted flirting"
+    },
+    {
+      "text": "A friend asks whether you've ever made the first romantic move. Describe a real or imagined occasion when you did.",
+      "starter": "Once, I...",
+      "action": "recount",
+      "context": "personal experience; making the first move"
+    },
+    {
+      "text": "You think your date is making flirty comments to the waiter. Tell your date what their behaviour looks like to you.",
+      "starter": "It looks like you're...",
+      "action": "confront",
+      "context": "date; address flirting with another person"
+    },
+    {
+      "text": "A friend mistakes ordinary customer service for flirting. Explain why you don't think the friendly cashier was showing romantic interest.",
+      "starter": "I don't think the cashier was...",
+      "action": "interpret",
+      "context": "customer service; distinguish politeness from advances"
+    },
+    {
+      "text": "Someone sends you heart emojis and asks you on a date, then claims they were only networking. Describe the mismatch to a friend.",
+      "starter": "It sounds like they were...",
+      "action": "interpret",
+      "context": "messages; romantic intent presented as networking"
+    },
+    {
+      "text": "A friend asks whether you'd approach someone romantically while they're working. State your personal rule about doing that.",
+      "starter": "I wouldn't...",
+      "action": "explain",
+      "context": "personal boundary; approaching someone at work"
+    },
+    {
+      "text": "You didn't notice someone was flirting until they asked for your number. Tell a friend what you finally realised.",
+      "starter": "I finally realised they were...",
+      "action": "recount",
+      "context": "delayed recognition; understand a romantic approach"
+    }
+  ],
+  "engage in": [
+    {
+      "text": "Your workplace encourages activities that help people relax. Tell a colleague which kinds of physical activity you regularly take part in.",
+      "starter": "I regularly...",
+      "action": "describe",
+      "context": "wellbeing; regular physical activity"
+    },
+    {
+      "text": "A group conversation turns into personal insults. Tell the group what kind of discussion you're unwilling to participate in.",
+      "starter": "I'm not willing to...",
+      "action": "state",
+      "context": "discussion boundary; refuse hostile exchanges"
+    },
+    {
+      "text": "A local charity needs volunteers for weekend projects. Describe the kind of community work you'd like to participate in.",
+      "starter": "I'd like to...",
+      "action": "describe",
+      "context": "volunteering; choose community involvement"
+    },
+    {
+      "text": "Two teams disagree about a shared project. Suggest the kind of constructive discussion they should have together.",
+      "starter": "Both teams should...",
+      "action": "recommend",
+      "context": "work disagreement; constructive dialogue"
+    },
+    {
+      "text": "You're explaining your screen-free evenings to a friend. Describe the creative activities you spend that time doing.",
+      "starter": "In the evenings, I...",
+      "action": "describe",
+      "context": "screen-free routine; creative activities"
+    },
+    {
+      "text": "Your club is setting expectations for members. State which kinds of dishonest behaviour members must avoid.",
+      "starter": "Members must not...",
+      "action": "state",
+      "context": "club expectations; prohibit dishonest conduct"
+    },
+    {
+      "text": "A friend feels isolated after moving. Suggest activities involving other people that could help them participate in local life.",
+      "starter": "You could...",
+      "action": "advise",
+      "context": "new resident; social participation"
+    },
+    {
+      "text": "An online argument is getting increasingly hostile. Explain your decision not to participate any further.",
+      "starter": "I don't want to...",
+      "action": "explain",
+      "context": "online conflict; withdraw from argument"
+    },
+    {
+      "text": "A school wants pupils to investigate questions themselves. Describe the hands-on learning activities you'd like them to take part in.",
+      "starter": "Pupils could...",
+      "action": "recommend",
+      "context": "school learning; hands-on investigation"
+    },
+    {
+      "text": "You're describing a nature holiday to a colleague. Say which outdoor activities you took part in during the trip.",
+      "starter": "During the trip, we...",
+      "action": "recount",
+      "context": "nature holiday; outdoor participation"
+    }
+  ],
+  "choir": [
+    {
+      "text": "You love singing but don't want to perform alone. Tell a friend what kind of local music group you'd like to join.",
+      "starter": "I'd like to join...",
+      "action": "recommend",
+      "context": "singing together; choose a group to join"
+    },
+    {
+      "text": "At a wedding, twenty singers perform together while the guests listen. Describe who is providing the music.",
+      "starter": "The music is coming from...",
+      "action": "describe",
+      "context": "wedding; identify ensemble performing together"
+    },
+    {
+      "text": "Your child's school is inviting pupils to sing together at a concert. Tell another parent which group your child wants to be in.",
+      "starter": "My child wants to join...",
+      "action": "explain",
+      "context": "school concert; child joins singing ensemble"
+    },
+    {
+      "text": "A friend asks what you do on Wednesday evenings. Explain that you rehearse songs with a group of other singers.",
+      "starter": "On Wednesdays, I rehearse with...",
+      "action": "describe",
+      "context": "weekly routine; group singing rehearsal"
+    },
+    {
+      "text": "Your town's singing group needs more low voices. Tell a friend with a deep voice which group is recruiting.",
+      "starter": "Our local...",
+      "action": "inform",
+      "context": "recruitment; singing ensemble seeks lower voices"
+    },
+    {
+      "text": "A concert programme lists a solo singer and a large vocal ensemble. Tell your friend which performance you'd prefer to hear.",
+      "starter": "I'd rather listen to...",
+      "action": "choose",
+      "context": "concert choice; ensemble versus solo singing"
+    },
+    {
+      "text": "You used to sing with a group but left when rehearsals clashed with work. Tell a colleague what you had to give up.",
+      "starter": "I had to leave...",
+      "action": "recount",
+      "context": "schedule conflict; leaving a singing group"
+    },
+    {
+      "text": "Someone thinks your music group plays instruments. Explain that you all sing together instead.",
+      "starter": "We're actually...",
+      "action": "clarify",
+      "context": "misunderstanding; vocal ensemble not instrumental band"
+    },
+    {
+      "text": "A group of singers at a community concert sounded beautifully balanced. Tell a friend which performers impressed you.",
+      "starter": "I was impressed by...",
+      "action": "describe",
+      "context": "concert review; balanced ensemble voices"
+    },
+    {
+      "text": "Your village has plenty of singers but no group for them to perform together. Suggest a musical project for the community.",
+      "starter": "We could start...",
+      "action": "suggest",
+      "context": "community project; establish singing ensemble"
+    }
+  ],
+  "lucrative": [
+    {
+      "text": "A friend earns much more selling homemade cakes than they spend on ingredients and equipment. Describe their business financially.",
+      "starter": "Their business sounds...",
+      "action": "describe",
+      "context": "home business; strong profit from baking"
+    },
+    {
+      "text": "You can choose between an enjoyable job and one with much higher earnings. Describe the financial appeal of the second option.",
+      "starter": "The second job would be...",
+      "action": "compare",
+      "context": "career choice; high earning potential"
+    },
+    {
+      "text": "A company wins a contract worth far more than it will cost to deliver. Tell a colleague what makes this deal attractive.",
+      "starter": "It's a particularly...",
+      "action": "assess",
+      "context": "business contract; large profit margin"
+    },
+    {
+      "text": "Your friend assumes all popular online shops make lots of money. Explain that high sales don't always mean high profits.",
+      "starter": "A popular shop isn't necessarily...",
+      "action": "clarify",
+      "context": "online sales; popularity versus profitability"
+    },
+    {
+      "text": "Your weekend photography work now brings in more money per hour than your main job. Describe how this side business has developed.",
+      "starter": "Photography has become...",
+      "action": "recount",
+      "context": "side business; rising earnings from photography"
+    },
+    {
+      "text": "A busy café pays so much in rent that almost no profit remains. Explain why you wouldn't call it a good money-making business.",
+      "starter": "Despite being busy, it isn't...",
+      "action": "assess",
+      "context": "cafe costs; revenue without substantial profit"
+    },
+    {
+      "text": "A company wants to focus on its most profitable services. Describe which part of the business it should expand.",
+      "starter": "It should expand its most...",
+      "action": "recommend",
+      "context": "business focus; expand profitable services"
+    },
+    {
+      "text": "A friend can rent their spare room during a major festival for a high price. Describe the potential financial opportunity.",
+      "starter": "Renting it out could be...",
+      "action": "assess",
+      "context": "festival rental; short-term earning opportunity"
+    },
+    {
+      "text": "An actor turns down a highly paid advertising deal. Describe the financial opportunity they chose to refuse.",
+      "starter": "They turned down...",
+      "action": "recount",
+      "context": "advertising deal; refusing high earnings"
+    },
+    {
+      "text": "A repair shop once made excellent profits, but replacement parts now cost much more. Describe the change in its financial appeal.",
+      "starter": "The business is no longer as...",
+      "action": "compare",
+      "context": "repair shop; declining profitability"
+    }
+  ],
+  "favour": [
+    {
+      "text": "You need a friend to collect a parcel while you're at work. Introduce your request politely before explaining what you need.",
+      "starter": "Could you do me...",
+      "action": "request",
+      "context": "parcel collection; introduce request for small help"
+    },
+    {
+      "text": "A neighbour watered your plants while you were away. Offer to help them next time they need something.",
+      "starter": "I'd be happy to return...",
+      "action": "offer",
+      "context": "neighbour help; reciprocate a kindness"
+    },
+    {
+      "text": "A friend asks why you drove someone to the airport at dawn. Explain that you were helping them rather than being paid.",
+      "starter": "I did it as...",
+      "action": "explain",
+      "context": "airport lift; unpaid personal help"
+    },
+    {
+      "text": "Your colleague has already helped you twice this week, and you need one more small thing. Acknowledge that as you introduce your request.",
+      "starter": "I know I've already asked you for...",
+      "action": "request",
+      "context": "repeated requests; acknowledge previous help"
+    },
+    {
+      "text": "Someone thanks you for lending them a suitcase. Say they can help you another time.",
+      "starter": "You can return...",
+      "action": "respond",
+      "context": "suitcase loan; future reciprocation"
+    },
+    {
+      "text": "Your friend wants you to move their furniture all weekend. Explain that this is a much bigger request than they suggest.",
+      "starter": "That's quite a big...",
+      "action": "assess",
+      "context": "moving furniture; size of requested help"
+    },
+    {
+      "text": "A stranger helped carry your bags upstairs. Tell your family about the helpful thing they did for you.",
+      "starter": "They did me...",
+      "action": "recount",
+      "context": "stranger assistance; describe a kindness"
+    },
+    {
+      "text": "A friend helped you get ready for an interview. Thank them and say that you now owe them some help.",
+      "starter": "Thanks, I owe you...",
+      "action": "thank",
+      "context": "interview preparation; acknowledge owed help"
+    },
+    {
+      "text": "Someone wants you to lend them your car for a week. Politely explain that you're uncomfortable with this particular request.",
+      "starter": "I'm sorry, but that's a...",
+      "action": "decline",
+      "context": "car loan; decline substantial personal request"
+    },
+    {
+      "text": "You fixed a friend's bicycle for free. Explain to someone else that you wanted to help, without expecting anything back.",
+      "starter": "It was just...",
+      "action": "explain",
+      "context": "bicycle repair; kindness without obligation"
+    }
+  ],
+  "ripe": [
+    {
+      "text": "You're choosing peaches to eat today. Tell the seller how ready to eat you'd like them to be.",
+      "starter": "I'd like peaches that are...",
+      "action": "request",
+      "context": "fruit shopping; peaches for immediate eating"
+    },
+    {
+      "text": "An avocado is still rock hard. Explain to your flatmate why you aren't using it for lunch yet.",
+      "starter": "This avocado isn't...",
+      "action": "explain",
+      "context": "avocado preparation; not ready to eat"
+    },
+    {
+      "text": "Some tomatoes on your plant are fully red, while others are green. Tell a friend which ones are ready to pick.",
+      "starter": "The red ones are...",
+      "action": "identify",
+      "context": "garden harvest; distinguish ready tomatoes"
+    },
+    {
+      "text": "You want bananas for next weekend, not today. Describe how ready to eat they should be when you buy them.",
+      "starter": "They shouldn't be too...",
+      "action": "choose",
+      "context": "advance shopping; bananas for later"
+    },
+    {
+      "text": "A melon smells sweet and gives slightly when pressed. Explain what those signs suggest about its readiness to eat.",
+      "starter": "It seems...",
+      "action": "assess",
+      "context": "melon selection; signs of readiness"
+    },
+    {
+      "text": "A friend serves a pear that's hard and sour. Explain what might be wrong with the fruit.",
+      "starter": "I don't think it was...",
+      "action": "assess",
+      "context": "unpleasant pear; picked or eaten too early"
+    },
+    {
+      "text": "You picked strawberries at their sweetest, just before they would become too soft. Describe their condition when you picked them.",
+      "starter": "They were perfectly...",
+      "action": "describe",
+      "context": "strawberry harvest; ideal readiness"
+    },
+    {
+      "text": "Two mangoes are available: one is firm and green, the other soft and fragrant. Compare how ready they are to eat.",
+      "starter": "The softer one looks...",
+      "action": "compare",
+      "context": "mango choice; compare readiness"
+    },
+    {
+      "text": "Your bananas have become extremely soft and brown. Describe their condition as you suggest using them for banana bread.",
+      "starter": "These bananas are...",
+      "action": "describe",
+      "context": "banana baking; fruit beyond peak readiness"
+    },
+    {
+      "text": "A friend wants to pick every apple today, but some still need time on the tree. Explain why part of the harvest should wait.",
+      "starter": "Some of the apples aren't...",
+      "action": "explain",
+      "context": "apple harvest; uneven readiness"
+    }
+  ],
+  "stall": [
+    {
+      "text": "You want to sell homemade jam at the weekend market. Tell the organiser what kind of selling space you'd like to rent.",
+      "starter": "I'd like to rent...",
+      "action": "request",
+      "context": "market jam sales; rent selling space"
+    },
+    {
+      "text": "A friend is looking for fresh bread at an outdoor market. Direct them to the small covered stand beside the entrance.",
+      "starter": "There's a bread...",
+      "action": "direct",
+      "context": "market directions; locate bread vendor"
+    },
+    {
+      "text": "You bought a handmade bracelet from a seller at a street fair. Tell a friend where you found it.",
+      "starter": "I found it at...",
+      "action": "recount",
+      "context": "street fair; purchase from craft vendor"
+    },
+    {
+      "text": "Heavy rain is expected during an outdoor market. Describe how you would protect your small selling stand and its goods.",
+      "starter": "I'd cover my...",
+      "action": "describe",
+      "context": "bad weather; protect market stand"
+    },
+    {
+      "text": "You can sell your art from a permanent shop or a small space at a weekend market. Tell a friend which setup you'd choose.",
+      "starter": "I'd start with...",
+      "action": "choose",
+      "context": "art sales; market space versus shop"
+    },
+    {
+      "text": "A market organiser asks what you need before opening your temporary food stand. Describe the selling space you have in mind.",
+      "starter": "My...",
+      "action": "describe",
+      "context": "food market; describe desired selling setup"
+    },
+    {
+      "text": "Your town's Christmas market has wooden booths selling gifts and snacks. Describe what visitors can browse there.",
+      "starter": "Visitors can browse...",
+      "action": "describe",
+      "context": "Christmas market; range of vendors"
+    },
+    {
+      "text": "You share a market selling space with a friend who makes candles. Tell a customer which half displays your own products.",
+      "starter": "On my side of the...",
+      "action": "explain",
+      "context": "shared sales space; distinguish displays"
+    },
+    {
+      "text": "A street market has more sellers than last year. Describe the change in the number of individual selling stands.",
+      "starter": "There are more...",
+      "action": "compare",
+      "context": "market growth; count selling spaces"
+    },
+    {
+      "text": "A friend asks where you'll meet them at a busy food market. Choose one vendor's stand as your meeting point.",
+      "starter": "Let's meet at...",
+      "action": "arrange",
+      "context": "food market; vendor as meeting point"
+    }
+  ]
+}

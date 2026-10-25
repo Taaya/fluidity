@@ -5,7 +5,6 @@ import java.util.List;
 
 public record QuestionSet(
         String cacheKey,
-        List<String> topics,
         List<String> words,
         List<TrainingQuestion> questions,
         String source,

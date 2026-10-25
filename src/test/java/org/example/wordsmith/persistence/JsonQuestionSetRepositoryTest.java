@@ -25,13 +25,14 @@ class JsonQuestionSetRepositoryTest {
                 new JsonQuestionSetRepository(temporaryDirectory, objectMapper);
         QuestionSet questionSet = new QuestionSet(
                 "cache-key",
-                List.of("pets"),
                 List.of("cat"),
                 List.of(new TrainingQuestion(
                         "question-1",
-                        "Tell a story about your cat.",
+                        "Describe a small everyday moment where this might happen.",
                         "cat",
-                        "pets"
+                        "I would probably say that...",
+                        "describe",
+                        false
                 )),
                 "test",
                 Instant.parse("2026-06-21T12:00:00Z")

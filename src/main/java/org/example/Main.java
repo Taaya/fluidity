@@ -21,7 +21,8 @@ public final class Main {
         QuestionGenerator generator = createGenerator(config, objectMapper);
         JsonQuestionSetRepository repository =
                 new JsonQuestionSetRepository(config.cacheDirectory(), objectMapper);
-        TrainingQuestionService service = new TrainingQuestionService(repository, generator);
+        TrainingQuestionService service =
+                new TrainingQuestionService(repository, generator, config.learnerLevel());
         WordsmithServer server = new WordsmithServer(config.port(), objectMapper, service, generator);
 
         Runtime.getRuntime().addShutdownHook(new Thread(server::stop));

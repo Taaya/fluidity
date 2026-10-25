@@ -1,0 +1,7 @@
+Created with the built-in image generation tool as an edit of v3. Concept image only.
+
+Precisely edit the supplied onboarding image. Change ONLY the rightmost illustration, step 3. Preserve all other image content, all text outside this scene, the first two illustrations, colors, typography, layout, title, button and close X.
+In step 3 swap the characters: butter-yellow bean-shaped friend on the LEFT facing right, green cloud/flower-shaped learner on the RIGHT facing left. Preserve their original identities, hand-drawn textures, friendly faces and dark green limbs.
+Replace the dialogue. Above LEFT YELLOW friend, a pale yellow speech bubble with tail clearly pointing to yellow says exactly: "What did you think of the film?"
+Above RIGHT GREEN learner, a cream speech bubble with subtle outline and tail clearly pointing to green says exactly: "It was a mixed bag. I loved the acting, but not the ending."
+Subtly underline only "a mixed bag" in green. No target vocabulary in the yellow friend's question. Remove both old step 3 speech texts completely. Make bubbles comfortably legible and separate, adjust only this scene's local spacing to fit, no overlapping adjacent illustration or headings. Story reads left to right: friend asks, learner answers using the idiom from their book. Everything outside step 3 illustration must remain unchanged.

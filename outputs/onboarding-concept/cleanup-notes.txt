@@ -1,0 +1,7 @@
+Created with the built-in image_gen tool, editing assets/onboarding-artwork.png.
+Result used by the website: assets/onboarding-artwork-clean.png.
+
+Use case: precise-object-edit.
+Edit target: attached approved 1536x1024 onboarding artwork.
+ONLY clean the dirty, blurry off-white cloudy/mottled paper background and ghostly blurry patches on the book pages and behind/around the illustrations. Make all blank background a perfectly uniform solid #fffdf9 and make the cream/white book pages clean and crisp while keeping every page edge and word card border. Remove the washed-out duplicate-looking shadow smear on the book. Preserve the small deliberate ground shadows.
+STRICT invariants: preserve EXACT canvas 1536x1024, all positions, bounding boxes, proportions, colors, original character silhouettes, poses, eyes and mouths, all legible text and typography. Do not redraw or stylize. The green learner at step2 MUST keep two vertical oval eyes and small slightly open smile. Yellow character and green character step3 remain exactly as is. Preserve their watercolor fills. Preserve all text verbatim including the 3 serif step headings, title, buttons, all scene text and book words. Do not move anything, change fonts, or add anything. This is ONLY a cleanup of cloudy background/paper smudges. No blur, no halos, no new shadows.

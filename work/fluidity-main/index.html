@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordswith</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="frame">
+      <section class="view landing-view is-active" id="landing-view" aria-labelledby="app-title">
+        <div class="brand-block">
+          <img class="brand-mark" src="assets/wordswith-mark.svg" alt="Wordswith logo">
+          <p class="eyebrow">Vocabulary speaking studio</p>
+          <h1 id="app-title">Wordswith</h1>
+          <p class="lead">
+            Practice new English words until they land naturally in free speech.
+          </p>
+        </div>
+
+        <section class="topic-picker" aria-labelledby="topic-picker-title">
+          <h2 class="visually-hidden" id="topic-picker-title">How it works</h2>
+          <ol class="practice-steps">
+            <li>Add words and collocations you want to learn</li>
+            <li>Choose topics that interest you</li>
+            <li>Practice using them in spontaneous speech</li>
+          </ol>
+
+          <div class="topic-list">
+            <button class="topic-chip" type="button" data-topic="work &amp; growth" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>work &amp; growth</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="travelling &amp; places" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>travelling &amp; places</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="social life" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>social life</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="family &amp; relationships" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>family &amp; relationships</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="music taste" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>music taste</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="tech" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>tech</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="free time &amp; hobbies" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>free time &amp; hobbies</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="pets" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>pets</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="food" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>food</span>
+            </button>
+            <button class="topic-chip" type="button" data-topic="movies &amp; culture" aria-pressed="false">
+              <span class="topic-check" aria-hidden="true">&#10003;</span>
+              <span>movies &amp; culture</span>
+            </button>
+          </div>
+        </section>
+
+        <button class="action-button primary" id="start-button" type="button" disabled>
+          <span class="button-icon" aria-hidden="true">
+            <svg class="icon-fill" viewBox="0 0 24 24" focusable="false">
+              <path d="M8 6.5v11l8.5-5.5L8 6.5Z"></path>
+            </svg>
+          </span>
+          <span id="start-button-label">Start session</span>
+        </button>
+        <p class="session-error" id="session-error" role="alert" hidden></p>
+      </section>
+
+      <section class="view training-view" id="training-view" aria-labelledby="question-display">
+        <div class="session-meta">
+          <span class="meta-chip">
+            <span class="meta-label">Practiced</span>
+            <strong id="practiced-count">0</strong>
+          </span>
+          <span class="meta-chip">
+            <span class="meta-label">Skipped</span>
+            <strong id="skipped-count">0</strong>
+          </span>
+        </div>
+
+        <div class="word-stage">
+          <div class="stage-shell">
+            <span class="stage-blob stage-blob-orange"></span>
+            <span class="stage-blob stage-blob-yellow"></span>
+            <span class="stage-blob stage-blob-blue"></span>
+            <div class="stage-ribbon">
+              <span class="ribbon-dot"></span>
+              <span>Answer freely — there is no perfect response</span>
+            </div>
+            <p class="word-hint">Use the target word in your answer</p>
+            <div class="question-context">
+              <span class="question-context-item">
+                <span class="meta-label">Word</span>
+                <strong id="question-word"></strong>
+              </span>
+              <span class="question-context-item">
+                <span class="meta-label">Topic</span>
+                <strong id="question-topic"></strong>
+              </span>
+            </div>
+            <div class="question-display" id="question-display" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="control-row">
+          <button class="action-button primary" id="next-button" type="button">
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 12h11"></path>
+                <path d="m11 5 7 7-7 7"></path>
+              </svg>
+            </span>
+            <span>Next</span>
+          </button>
+
+          <button class="action-button ghost" id="skip-button" type="button">
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5 5v14"></path>
+                <path d="m9 12 9-7v14l-9-7Z"></path>
+              </svg>
+            </span>
+            <span>Skip</span>
+          </button>
+
+          <button class="action-button subtle" id="stop-button" type="button">
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="7" y="7" width="10" height="10" rx="1.5"></rect>
+              </svg>
+            </span>
+            <span>Stop</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="summary-backdrop" hidden>
+    <section class="summary-modal" role="dialog" aria-modal="true" aria-labelledby="summary-title">
+      <div class="summary-header">
+        <p class="eyebrow">Session summary</p>
+        <h2 id="summary-title">What you used today</h2>
+        <p class="summary-note" id="summary-note"></p>
+      </div>
+
+      <div class="summary-stats">
+        <span><strong id="summary-practiced-count">0</strong> practiced</span>
+        <span><strong id="summary-skipped-count">0</strong> skipped</span>
+      </div>
+
+      <div class="summary-groups">
+        <section class="summary-group">
+          <h3>Practiced</h3>
+          <div class="word-list" id="practiced-list"></div>
+        </section>
+
+        <section class="summary-group">
+          <h3>Skipped</h3>
+          <div class="word-list" id="skipped-list"></div>
+        </section>
+      </div>
+
+      <div class="modal-actions">
+        <button class="action-button primary" id="restart-button" type="button">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M4 12a8 8 0 1 0 2.34-5.66"></path>
+              <path d="M4 4v6h6"></path>
+            </svg>
+          </span>
+          <span>Train again</span>
+        </button>
+
+        <button class="action-button subtle" id="close-summary-button" type="button">
+          <span>Back to start</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

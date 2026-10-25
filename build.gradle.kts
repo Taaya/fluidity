@@ -29,13 +29,29 @@ application {
     mainClass = "org.example.Main"
 }
 
+tasks.named<JavaExec>("run") {
+    val envFile = rootProject.file(".env")
+    if (envFile.isFile) {
+        envFile.readLines().forEach { rawLine ->
+            val line = rawLine.trim()
+            if (line.isNotEmpty() && !line.startsWith("#") && line.contains('=')) {
+                val (key, rawValue) = line.split('=', limit = 2)
+                val value = rawValue.trim().removeSurrounding("\"").removeSurrounding("'")
+                if (key.isNotBlank() && System.getenv(key.trim()).isNullOrBlank()) {
+                    environment(key.trim(), value)
+                }
+            }
+        }
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
 tasks.processResources {
     from(projectDir) {
-        include("index.html", "styles.css", "script.js", "assets/**")
+        include("index.html", "add-words.html", "styles.css", "script.js", "prompt-history.js", "assets/**")
         into("public")
     }
 }

@@ -7,6 +7,7 @@ import com.sun.net.httpserver.HttpServer;
 import org.example.wordsmith.domain.QuestionSet;
 import org.example.wordsmith.domain.TrainingSession;
 import org.example.wordsmith.generation.QuestionGenerator;
+import org.example.wordsmith.generation.PromptUnavailableException;
 import org.example.wordsmith.service.TrainingQuestionService;
 import org.example.wordsmith.service.TrainingQuestionService.ValidationException;
 
@@ -17,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 public final class WordsmithServer {
     private static final int MAX_REQUEST_BYTES = 64 * 1024;
@@ -25,6 +27,7 @@ public final class WordsmithServer {
     private final TrainingQuestionService service;
     private final QuestionGenerator generator;
     private final HttpServer server;
+    private final ExecutorService executor = Executors.newCachedThreadPool();
 
     public WordsmithServer(
             int port,
@@ -38,8 +41,9 @@ public final class WordsmithServer {
         this.server = HttpServer.create(new InetSocketAddress(port), 0);
         this.server.createContext("/api/health", this::handleHealth);
         this.server.createContext("/api/training-sessions", this::handleTrainingSession);
+        this.server.createContext("/api/dictionary-items/tasks", this::handleDictionaryTasks);
         this.server.createContext("/", this::handleStaticFile);
-        this.server.setExecutor(Executors.newCachedThreadPool());
+        this.server.setExecutor(executor);
     }
 
     public void start() {
@@ -48,7 +52,10 @@ public final class WordsmithServer {
 
     public void stop() {
         server.stop(1);
+        executor.shutdownNow();
     }
+
+    public int port() { return server.getAddress().getPort(); }
 
     private void handleHealth(HttpExchange exchange) throws IOException {
         if (!"GET".equals(exchange.getRequestMethod())) {
@@ -71,10 +78,12 @@ public final class WordsmithServer {
         try {
             TrainingSessionRequest request =
                     objectMapper.readValue(readRequestBody(exchange), TrainingSessionRequest.class);
-            TrainingSession session = service.createSession(request.topics(), request.words());
+            TrainingSession session = service.createSession(request.words(), request.level(), learnerId(exchange), request.sessionSize());
             sendJson(exchange, 200, toResponse(session));
         } catch (ValidationException | JsonProcessingException exception) {
             sendError(exchange, 400, exception.getMessage());
+        } catch (PromptUnavailableException exception) {
+            sendError(exchange, 503, exception.getMessage());
         } catch (Exception exception) {
             exception.printStackTrace();
             sendError(exchange, 502, "Could not prepare this training session");
@@ -85,13 +94,56 @@ public final class WordsmithServer {
         QuestionSet questionSet = session.questionSet();
         return new TrainingSessionResponse(
                 session.sessionId(),
-                questionSet.topics(),
                 questionSet.words(),
                 questionSet.questions(),
                 session.cached(),
                 questionSet.source(),
+                questionSet.generatedAt().toString(),
+                session.unavailableWords()
+        );
+    }
+
+    private void handleDictionaryTasks(HttpExchange exchange) throws IOException {
+        try {
+            if ("POST".equals(exchange.getRequestMethod())) {
+                DictionaryTaskRequest request =
+                        objectMapper.readValue(readRequestBody(exchange), DictionaryTaskRequest.class);
+                QuestionSet questionSet = service.prepareDictionaryItem(request.word(), request.level(), learnerId(exchange));
+                sendJson(exchange, 200, toDictionaryTaskResponse(questionSet));
+                return;
+            }
+
+            if ("PATCH".equals(exchange.getRequestMethod())) {
+                DictionaryTaskUsedRequest request =
+                        objectMapper.readValue(readRequestBody(exchange), DictionaryTaskUsedRequest.class);
+                service.markTaskUsed(request.word(), request.taskId(), request.level(), learnerId(exchange));
+                sendJson(exchange, 200, Map.of("recorded", true));
+                return;
+            }
+
+            sendMethodNotAllowed(exchange, "POST, PATCH");
+        } catch (ValidationException | JsonProcessingException exception) {
+            sendError(exchange, 400, exception.getMessage());
+        } catch (PromptUnavailableException exception) {
+            sendError(exchange, 503, exception.getMessage());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            sendError(exchange, 502, "Could not prepare vocabulary tasks");
+        }
+    }
+
+    private DictionaryTaskResponse toDictionaryTaskResponse(QuestionSet questionSet) {
+        return new DictionaryTaskResponse(
+                questionSet.words().get(0),
+                questionSet.questions(),
+                questionSet.source(),
                 questionSet.generatedAt().toString()
         );
+    }
+
+    private String learnerId(HttpExchange exchange) {
+        // Anonymous browser profile, not authentication. Do not store personal data under this ID.
+        return exchange.getRequestHeaders().getFirst("X-Learner-Id");
     }
 
     private void handleStaticFile(HttpExchange exchange) throws IOException {
@@ -103,8 +155,10 @@ public final class WordsmithServer {
         String requestPath = exchange.getRequestURI().getPath();
         String resourcePath = switch (requestPath) {
             case "/", "/index.html" -> "/public/index.html";
+            case "/add-words", "/add-words.html" -> "/public/index.html";
             case "/styles.css" -> "/public/styles.css";
             case "/script.js" -> "/public/script.js";
+            case "/prompt-history.js" -> "/public/prompt-history.js";
             default -> requestPath.startsWith("/assets/")
                     ? "/public" + requestPath
                     : null;
@@ -169,15 +223,29 @@ public final class WordsmithServer {
         return "text/html; charset=utf-8";
     }
 
-    private record TrainingSessionRequest(List<String> topics, List<String> words) {
+    private record TrainingSessionRequest(List<String> words, String level, Integer sessionSize) {
     }
 
     private record TrainingSessionResponse(
             String sessionId,
-            List<String> topics,
             List<String> words,
             List<?> questions,
             boolean cached,
+            String source,
+            String generatedAt,
+            List<String> unavailableWords
+    ) {
+    }
+
+    private record DictionaryTaskRequest(String word, String level) {
+    }
+
+    private record DictionaryTaskUsedRequest(String word, String taskId, String level) {
+    }
+
+    private record DictionaryTaskResponse(
+            String word,
+            List<?> tasks,
             String source,
             String generatedAt
     ) {
