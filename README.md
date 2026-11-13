@@ -59,11 +59,16 @@ tasks. It creates five candidates with:
 - a speaking action and an internal description of the context;
 - a private 1–3-sentence sample answer demonstrating focused, natural target use.
 
+Local checks first discard individual candidates that repeat shown tasks, repeat another retained
+candidate, or reveal the target in the question or starter. The remaining one to five tasks keep
+their matching private samples for review; one invalid candidate does not discard the whole batch.
+If none remain, generation gets one revision, then reports the local rejection reasons on failure.
+
 An independent review request checks semantic fit, target focus, brevity, learner level, starter quality
-and substantive difference from previous tasks and the other candidates. A failed review triggers
-one revision with feedback and the rejected candidates. Two unsuccessful attempts return an
-error; unapproved candidates are not served or cached. Private sample answers are discarded after
-review and are not sent to the browser.
+and substantive difference from previous tasks and the other candidates. A failed first review
+triggers one revision with feedback and the rejected candidates. The current MVP treats the second
+editorial review as advisory, serving the revised candidates that pass the mandatory local checks.
+Private sample answers are discarded after review and are not sent to the browser.
 
 Local validation additionally rejects malformed tasks, target strings in questions/starters,
 exact normalized repeats, identical context labels and near-identical wording. Text checks use
