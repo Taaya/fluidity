@@ -97,28 +97,74 @@ class OpenAiQuestionGeneratorTest {
     }
 
     @Test
-    void exactRepeatIsRejectedBeforeSemanticReviewEvenWithNewIds() throws Exception {
+    void dropsExactRepeatButReviewsTheRemainingCandidatesEvenWithNewIds() throws Exception {
         respond(candidates("cracked", 0));
-        respond(candidates("cracked", 5));
         respond(review(true, ""));
         List<TrainingQuestion> history = List.of(new TrainingQuestion("old", TEXTS.get(0), "cracked",
                 "Before...", "explain", true, "different label"));
         List<TrainingQuestion> result = generator.generate(List.of("cracked"), "Intermediate", history);
-        assertEquals(3, requests.size());
+        assertEquals(2, requests.size());
+        assertEquals(4, result.size());
         assertFalse(result.stream().anyMatch(q -> q.text().equals(TEXTS.get(0))));
-        assertTrue(input(requests.get(1)).path("revision_feedback").asText().contains("repeat"));
+        assertEquals(4, input(requests.get(1)).at("/candidates/items/0/tasks").size());
     }
 
     @Test
-    void targetLeakageIsRevisedBeforeReview() throws Exception {
+    void dropsTargetLeakageBeforeReviewWithoutDiscardingOtherTasks() throws Exception {
         ObjectNode leaked = candidates("cracked", 0);
         ((ObjectNode) leaked.at("/items/0/tasks/0")).put("text", "Your cracked phone fell onto stone. Explain what happened.");
         respond(leaked);
-        respond(candidates("cracked", 5));
         respond(review(true, ""));
-        assertEquals(5, generator.generate(List.of("cracked"), "Intermediate").size());
-        assertEquals(3, requests.size());
-        assertTrue(input(requests.get(1)).path("revision_feedback").asText().contains("reveals the target"));
+        List<TrainingQuestion> tasks = generator.generate(List.of("cracked"), "Intermediate");
+        assertEquals(4, tasks.size());
+        assertEquals(2, requests.size());
+        assertTrue(tasks.stream().noneMatch(q -> PromptSimilarity.containsTarget(q.text(), "cracked")));
+        assertEquals(TEXTS.get(1), input(requests.get(1)).at("/candidates/items/0/tasks/0/text").asText());
+    }
+
+    @Test
+    void phraseCanStartPracticeWithOneReviewedTaskAfterFilteringLeaksAndRepeats() throws Exception {
+        String word = "slip through the cracks";
+        ObjectNode batch = candidates(word, 0);
+        ((ObjectNode) batch.at("/items/0/tasks/0")).put("text", "How did this request slip through the cracks?");
+        ((ObjectNode) batch.at("/items/0/tasks/1")).put("starter", "It could slip through the cracks...");
+        ((ObjectNode) batch.at("/items/0/tasks/2")).put("sample_answer", "The request might slip through the cracks.");
+        ((ObjectNode) batch.at("/items/0/tasks/3")).put("context", "context 2");
+        List<TrainingQuestion> history = List.of(new TrainingQuestion("seen", TEXTS.get(4), word,
+                "Before...", "explain", true, "previous packing situation"));
+        respond(batch);
+        respond(review(true, ""));
+
+        List<TrainingQuestion> tasks = generator.generate(List.of(word), "Intermediate", history);
+
+        assertEquals(1, tasks.size());
+        assertEquals(TEXTS.get(2), tasks.get(0).text());
+        JsonNode reviewed = input(requests.get(1)).at("/candidates/items/0/tasks");
+        assertEquals(1, reviewed.size());
+        assertEquals(TEXTS.get(2), reviewed.get(0).path("text").asText());
+        assertEquals("The request might slip through the cracks.", reviewed.get(0).path("sample_answer").asText());
+        assertFalse(mapper.writeValueAsString(tasks).contains("sample_answer"));
+    }
+
+    @Test
+    void retriesWhenNoCandidateSurvivesAndNeverServesLeaksOrSeenTasks() throws Exception {
+        String word = "slip through the cracks";
+        ObjectNode leaked = candidates(word, 0);
+        leaked.at("/items/0/tasks").forEach(task -> ((ObjectNode) task)
+                .put("text", "How could it slip through the cracks?"));
+        respond(leaked);
+        respond(candidates(word, 5));
+        List<TrainingQuestion> history = new ArrayList<>();
+        for (int i = 5; i < 10; i++) history.add(new TrainingQuestion("seen-" + i, TEXTS.get(i), word,
+                "Before...", "explain", true, "earlier context " + i));
+
+        PromptUnavailableException error = assertThrows(PromptUnavailableException.class,
+                () -> generator.generate(List.of(word), "Intermediate", history));
+
+        assertEquals(2, requests.size());
+        assertTrue(input(requests.get(1)).path("revision_feedback").asText().contains("5 candidates reveal"));
+        assertTrue(input(requests.get(1)).has("rejected_candidates"));
+        assertTrue(error.getMessage().contains("5 candidates repeat"));
     }
 
     @Test

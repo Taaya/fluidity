@@ -2,6 +2,7 @@ package org.example.wordsmith.generation;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.example.wordsmith.config.AppConfig.OpenAiConfig;
 import org.example.wordsmith.domain.TrainingQuestion;
@@ -67,36 +68,49 @@ public final class OpenAiQuestionGenerator implements QuestionGenerator {
             JsonNode candidates = request(GENERATION_RULES, input, "vocabulary_speaking_tasks", questionSchema(), 5000);
             List<TrainingQuestion> questions = parseQuestions(candidates, words.get(0));
             List<TrainingQuestion> exclusions = new ArrayList<>(previousTasks);
-            boolean duplicate = false;
-            boolean revealedTarget = false;
-            for (TrainingQuestion question : questions) {
-                if (exclusions.stream().anyMatch(old -> PromptSimilarity.repeats(question, old))) duplicate = true;
+            List<TrainingQuestion> eligible = new ArrayList<>();
+            ObjectNode reviewCandidates = candidates.deepCopy();
+            ArrayNode reviewTasks = ((ArrayNode) reviewCandidates.at("/items/0/tasks")).removeAll();
+            int repeated = 0;
+            int revealedTarget = 0;
+            for (int index = 0; index < questions.size(); index++) {
+                TrainingQuestion question = questions.get(index);
                 if (PromptSimilarity.containsTarget(question.text(), words.get(0))
-                        || PromptSimilarity.containsTarget(question.starter(), words.get(0))) revealedTarget = true;
+                        || PromptSimilarity.containsTarget(question.starter(), words.get(0))) {
+                    revealedTarget++;
+                    continue;
+                }
+                if (exclusions.stream().anyMatch(old -> PromptSimilarity.repeats(question, old))) {
+                    repeated++;
+                    continue;
+                }
+                eligible.add(question);
+                // Keep each retained sample answer paired with its task for semantic review.
+                reviewTasks.add(candidates.at("/items/0/tasks").get(index));
                 exclusions.add(question);
             }
-            if (revealedTarget) {
-                feedback = "The question or starter reveals the target. Supply its natural context without including the answer.";
-            } else if (duplicate) {
-                feedback = "Candidates repeat earlier tasks or one another. Create substantively different situations and speaking purposes.";
+            if (eligible.isEmpty()) {
+                feedback = revealedTarget + " candidates reveal the target in the question or starter; "
+                        + repeated + " candidates repeat earlier tasks or one another. "
+                        + "Create different situations without including the answer in the question or starter.";
             } else {
                 ObjectNode reviewInput = input.deepCopy();
-                reviewInput.set("candidates", candidates);
+                reviewInput.set("candidates", reviewCandidates);
                 JsonNode review = request(REVIEW_RULES, reviewInput, "speaking_task_review", reviewSchema(), 1500);
                 if (review == null || !review.path("accepted").isBoolean() || !review.path("feedback").isTextual()) {
                     throw new IOException("OpenAI returned an incomplete prompt review");
                 }
-                if (review.path("accepted").booleanValue()) return questions;
+                if (review.path("accepted").booleanValue()) return List.copyOf(eligible);
                 // The editorial review gets one chance to improve a valid batch. For the MVP,
                 // do not make an advisory semantic judgment a permanent practice blocker.
-                if (attempt == 1) return questions;
+                if (attempt == 1) return List.copyOf(eligible);
                 feedback = review.path("feedback").asText();
             }
             // Let the next attempt see what failed, rather than request the same ideas again.
             input.set("rejected_candidates", candidates);
         }
         throw new PromptUnavailableException("Could not prepare sufficiently different, word-specific prompts for “"
-                + words.get(0) + "”. Please try again.");
+                + words.get(0) + "”. " + feedback);
     }
 
     private List<TrainingQuestion> recentTasks(List<TrainingQuestion> tasks) {

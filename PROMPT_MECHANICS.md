@@ -110,8 +110,12 @@ For each candidate, check:
 
 ## Implementation and limits
 
+- Local checks filter repeated candidates and target leaks individually before review. A pool can
+  contain one to five surviving tasks, each reviewed with its own private sample. A single failed
+  candidate no longer blocks the entire word; an empty batch still triggers revision or an error.
 - Actual generation and separate review rules live in `src/main/resources/prompts`. A failed
-  review triggers one revision with feedback; unapproved sets are not served.
+  first review triggers one revision with feedback. In the current MVP, the second editorial
+  review is advisory; the local repetition and target-leak checks remain mandatory.
 - The generator supplies private 1–3-sentence samples for review. Samples are discarded before
   tasks reach the browser. The UI asks for a short answer without a minimum sentence count.
 - Generation and semantic review receive up to 30 recent shown tasks. Local exact/near-text and
