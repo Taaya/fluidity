@@ -35,6 +35,9 @@ public final class DemoQuestionGenerator implements QuestionGenerator {
         for (String word : words) {
             String key = word.toLowerCase(Locale.ROOT);
             if (List.of("crack", "cracks", "cracking").contains(key)) key = "cracked";
+            if (List.of("drift apart", "drifts apart", "drifted apart", "drifting apart", "to drift apart").contains(key)) {
+                key = "drift apart";
+            }
             if (key.equals("danube")) key = "Danube";
             List<DemoTask> tasks = REVIEWED_TASKS.get(key);
             if (tasks == null) {

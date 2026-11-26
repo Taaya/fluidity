@@ -125,9 +125,9 @@ For each candidate, check:
   Cached tasks are checked against seen contexts as well as IDs across revisions and levels.
 - Curated demo scenario identities stay stable across wording edits so a shorter version does
   not reintroduce a previously shown situation. Its pool version changes to bypass old wording.
-- The offline preview has ten tasks each for Danube, among, cracked and steeple, plus five each
-  for the original ten expressions, and ten each for chat someone up, hit on someone and engage in.
-  The generic fallback has been removed.
+- The offline preview has ten tasks each for Danube, among, cracked, steeple, chat someone up,
+  hit on someone, engage in, choir, lucrative, favour, ripe, stall and drift apart, plus five each
+  for the original ten expressions. The generic fallback has been removed.
 - A word without fresh tasks does not block other available words from the library; unavailable
   words are reported and remain in the library. If none are available, the app explains the limit.
 - Live generation for arbitrary vocabulary requires a server-side OpenAI key, currently absent

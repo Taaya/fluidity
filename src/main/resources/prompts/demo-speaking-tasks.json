@@ -1062,5 +1062,67 @@
       "action": "arrange",
       "context": "food market; vendor as meeting point"
     }
+  ],
+  "drift apart": [
+    {
+      "text": "Two old school friends meet again after years and find the conversation hard. Describe what happened to their friendship.",
+      "starter": "At first they were close, but over time they...",
+      "action": "describe",
+      "context": "school friends reunion; explain gradual loss of closeness"
+    },
+    {
+      "text": "A couple still share a flat but spend most evenings in separate rooms. Describe how their relationship has changed.",
+      "starter": "They used to spend every evening together, but...",
+      "action": "describe",
+      "context": "shared flat; describe fading closeness between partners"
+    },
+    {
+      "text": "You and a childhood friend now exchange only birthday messages. Describe the change in your friendship.",
+      "starter": "We used to talk every week, but...",
+      "action": "describe",
+      "context": "childhood friend; describe fading contact"
+    },
+    {
+      "text": "A band you loved plays a reunion show, and the members barely speak to each other. Describe what happened to them over the years.",
+      "starter": "After they stopped touring, the band...",
+      "action": "describe",
+      "context": "band reunion; explain lost closeness between members"
+    },
+    {
+      "text": "A colleague moved to another city, and your weekly calls stopped after a few months. Describe what happened to your working friendship.",
+      "starter": "At first we called every week, but...",
+      "action": "describe",
+      "context": "remote colleague; describe fading work friendship"
+    },
+    {
+      "text": "Two sisters chose very different lives and now share little beyond family dinners. Describe their relationship.",
+      "starter": "As children they were close, but...",
+      "action": "describe",
+      "context": "sisters; describe growing distance between siblings"
+    },
+    {
+      "text": "Your old group chat is still there, but nobody writes except to say happy birthday. Describe how the group has changed.",
+      "starter": "Our group chat used to be busy, but...",
+      "action": "describe",
+      "context": "old friends' group chat; describe fading group contact"
+    },
+    {
+      "text": "Your neighbours used to chat over the fence every evening, and now they only wave. Describe what seems to have changed.",
+      "starter": "They used to stop and talk, but lately...",
+      "action": "describe",
+      "context": "neighbours; describe fading everyday contact"
+    },
+    {
+      "text": "A mentor and a former student meet at a conference and find little to talk about. Describe how their connection has changed.",
+      "starter": "They used to discuss everything, but...",
+      "action": "describe",
+      "context": "mentor and former student; describe lost connection"
+    },
+    {
+      "text": "Two friends who once planned every holiday together now book separate trips. Describe how they reached this point.",
+      "starter": "They once planned every trip together, but...",
+      "action": "describe",
+      "context": "close friends; describe gradual separation in plans"
+    }
   ]
 }
