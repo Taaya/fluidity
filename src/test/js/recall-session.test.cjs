@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
+const { createShareLink, readSharedWords } = require('../../../share-words.js');
 
 function app(saved = new Map(), options = {}) {
   const elements = new Map();
@@ -29,7 +30,10 @@ function app(saved = new Map(), options = {}) {
     crypto: { randomUUID: () => 'test-id' },
     fetch: options.fetch,
     createPromptHistory: () => ({ learnerId: 'test', flush: options.flush || (async () => {}),
-      record: q => { exposures.push(q.id); return Promise.resolve(); } })
+      record: q => { exposures.push(q.id); return Promise.resolve(); } }),
+    // Loaded before script.js in index.html; sharing must not disturb practice.
+    createShareLink,
+    readSharedWords
   });
   // Boot the real application functions without rendering the unrelated vocabulary screen.
   const source = fs.readFileSync(path.join(__dirname, '../../../script.js'), 'utf8')

@@ -90,12 +90,18 @@ h1 { max-width: 18ch; font-family: var(--display); font-size: clamp(38px, 4.3vw,
 .word-input-shell:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgb(35 75 204 / 10%); }
 .word-input { width: 100%; min-height: 112px; padding: 0; resize: vertical; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 15px; line-height: 1.8; }
 .word-input::placeholder { color: #777b71; opacity: 1; }
-.word-input-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #eeeee4; padding-top: 12px; }
+.word-input-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #eeeee4; padding-top: 12px; }
 .input-status, .field-note { color: var(--ink-soft); font-size: 11px; font-variant-numeric: tabular-nums; }
 .input-status.is-error, .session-error { color: var(--coral); }
 .inline-add-button { min-height: 40px; padding: 0 16px; border: 1px solid var(--green); border-radius: 6px; color: white; background: var(--green); font-size: 13px; font-weight: 600; }
 .inline-add-button:hover:not(:disabled) { background: var(--green-dark); }
 .inline-add-button:disabled { color: #75796f; background: #f1f1e8; border-color: #e2e4d7; }
+.word-input-actions { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.inline-share-button { color: var(--green-dark); background: transparent; border-color: var(--green); }
+.inline-share-button:hover:not(:disabled) { background: var(--green-soft); }
+.share-link { display: grid; gap: 7px; }
+.share-link label { color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
+.share-link-input { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid #bdc3b5; border-radius: 7px; background: var(--surface); color: var(--ink); font-size: 12px; }
 .session-error { font-size: 13px; line-height: 1.5; padding: 12px 16px; background: var(--coral-soft); border-radius: 8px; }
 .vocabulary-panel { min-width: 0; padding-top: 9px; }
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
@@ -260,6 +266,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .home-copy .handwritten { font-size: 22px; }
   .word-input { font-size: 16px; }
   .word-input-shell { padding: 16px; }
+  .word-input-actions { width: 100%; margin-left: 0; }
+  .word-input-actions .inline-add-button { flex: 1 1 0; min-width: 0; padding: 0 10px; }
   .status-summary { gap: 6px; }
   .status-summary span { padding: 10px; }
   .vocabulary-word-input { font-size: 16px; }

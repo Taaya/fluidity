@@ -159,6 +159,7 @@ public final class WordsmithServer {
             case "/styles.css" -> "/public/styles.css";
             case "/script.js" -> "/public/script.js";
             case "/prompt-history.js" -> "/public/prompt-history.js";
+            case "/share-words.js" -> "/public/share-words.js";
             default -> requestPath.startsWith("/assets/")
                     ? "/public" + requestPath
                     : null;
