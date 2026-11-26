@@ -26,14 +26,32 @@ This is a small experiment from PRODUCT_STRATEGY.md.
    Opening the link alone does not add words. Existing library items and their progress
    stay intact, and existing duplicate handling prevents duplicate additions.
 
-No additional review screen or teacher account is needed. Keep the existing design,
+No additional review screen is needed. Keep the existing design,
 Practice flow and Share progress image feature.
+
+## How sharing works without login
+
+- Neither the sender nor the recipient needs an application account or login.
+- Each browser profile keeps its own vocabulary and progress in the existing browser storage.
+- The sender shares a link containing only the vocabulary list. It contains no learner ID,
+  practice history or progress and is not addressed to a particular account.
+- The recipient opens the link and sees the list in the input field. Pressing Add words saves
+  it in that recipient's browser, using the existing add behavior.
+- The recipient's actions do not change the sender's library or progress.
+- A library does not automatically sync to another browser or device. Accounts and cloud
+  synchronization are separate future work and are outside this task.
+
+For the workshop, use two separate browser profiles (for example, a regular and a private
+window): one as sender, the other as recipient. Both must be able to open the same app/preview
+address. Any Base Code preview access requirement is separate from login inside Fluidity.
 
 ## Quick check
 
 - Paste the five sample items and press Add and Share: they are added locally and a link is copied.
-- Open that link in a private window: the same list is in the input, ready to edit or add.
-- Press Add words: the accepted items appear in the recipient's library.
+- Open that link in the recipient browser profile: the same list is in the input, ready to edit
+  or add, with no Fluidity login step.
+- Press Add words: the accepted items appear in the recipient's library. Reload that profile
+  to verify they remain saved; the sender's library and progress are unchanged.
 - Try a recipient who already has one of those words: its progress stays intact.
 - Invalid input uses the existing form feedback; a clipboard failure still leaves a copyable link.
 - An invalid shared payload displays a clear message and does not change the library.
