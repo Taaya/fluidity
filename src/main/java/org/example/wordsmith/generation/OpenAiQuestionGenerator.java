@@ -66,18 +66,29 @@ public final class OpenAiQuestionGenerator implements QuestionGenerator {
         for (int attempt = 0; attempt < 2; attempt++) {
             input.put("revision_feedback", feedback);
             JsonNode candidates = request(GENERATION_RULES, input, "vocabulary_speaking_tasks", questionSchema(), 5000);
-            List<TrainingQuestion> questions = parseQuestions(candidates, words.get(0));
+            List<TrainingQuestion> questions;
+            try {
+                questions = parseQuestions(candidates, words.get(0));
+            } catch (IOException invalidOutput) {
+                // A schema-valid response can still carry blank fields; retry instead of failing the word.
+                if (attempt == 1) throw invalidOutput;
+                feedback = invalidOutput.getMessage() + ". Fill every field of every task with non-empty text.";
+                input.set("rejected_candidates", candidates);
+                continue;
+            }
             List<TrainingQuestion> exclusions = new ArrayList<>(previousTasks);
             List<TrainingQuestion> eligible = new ArrayList<>();
             ObjectNode reviewCandidates = candidates.deepCopy();
             ArrayNode reviewTasks = ((ArrayNode) reviewCandidates.at("/items/0/tasks")).removeAll();
             int repeated = 0;
             int revealedTarget = 0;
+            List<String> revealingExamples = new ArrayList<>();
             for (int index = 0; index < questions.size(); index++) {
                 TrainingQuestion question = questions.get(index);
                 if (PromptSimilarity.containsTarget(question.text(), words.get(0))
                         || PromptSimilarity.containsTarget(question.starter(), words.get(0))) {
                     revealedTarget++;
+                    if (revealingExamples.size() < 2) revealingExamples.add(question.text());
                     continue;
                 }
                 if (exclusions.stream().anyMatch(old -> PromptSimilarity.repeats(question, old))) {
@@ -92,7 +103,9 @@ public final class OpenAiQuestionGenerator implements QuestionGenerator {
             if (eligible.isEmpty()) {
                 feedback = revealedTarget + " candidates reveal the target in the question or starter; "
                         + repeated + " candidates repeat earlier tasks or one another. "
-                        + "Create different situations without including the answer in the question or starter.";
+                        + (revealingExamples.isEmpty() ? ""
+                        : "These drafts contain the target and must be rewritten without it, describing "
+                        + "the situation instead: " + String.join(" | ", revealingExamples) + ". ");
             } else {
                 ObjectNode reviewInput = input.deepCopy();
                 reviewInput.set("candidates", reviewCandidates);
@@ -202,7 +215,7 @@ public final class OpenAiQuestionGenerator implements QuestionGenerator {
         for (JsonNode task : item.path("tasks")) {
             for (String field : List.of("text", "starter", "action", "context", "sample_answer")) {
                 if (!task.path(field).isTextual() || task.path(field).asText().isBlank()) {
-                    throw new IOException("OpenAI returned an incomplete vocabulary task");
+                    throw new IOException("OpenAI returned an incomplete vocabulary task (empty " + field + ")");
                 }
             }
             questions.add(new TrainingQuestion(UUID.randomUUID().toString(), task.path("text").asText().trim(),

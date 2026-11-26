@@ -34,10 +34,14 @@ Each task must:
   knowledge, specific personal experience, complex backstory or geography quiz.
 - Adapt wording to level without making higher-level answers longer by default. Elementary uses
   common words and simple structures; higher levels may express finer distinctions concisely.
-- Keep the target and its inflected answer forms out of text and starter. The learner previews the session vocabulary first; during each task the word is hidden
-  behind an optional reveal button. Give enough semantic information to recall a suitable expression
-  from that preview, without relying on a visible target heading. A short optional starter should lead directly into a natural target-bearing sentence,
-  without forcing a competing synonym or a detour.
+- NEVER include the target word, or any inflection, split or hyphenated form of it, in text or
+  starter (cracked/cracking, reconnect/reconnected/re-connecting, follow in the footsteps). If a
+  draft question or starter contains it, rewrite that draft: describe the situation that implies
+  the answer instead of naming it. The learner previews the session vocabulary first; during each
+  task the word is hidden behind an optional reveal button. Give enough semantic information to
+  recall a suitable expression from that preview, without relying on a visible target heading. A
+  short optional starter should lead directly into a natural target-bearing sentence, without
+  forcing a competing synonym or a detour.
 - Put a concise context label ONLY in the separate context field for internal novelty checks,
   never in text or starter. Name the meaning, situation and requested target-bearing thought.
   Describe the actual task; keep labels stable for substantively equivalent situations.
@@ -68,6 +72,13 @@ Starter: The bowl...
 Sample: The bowl cracked near the rim when it hit the sink. The crack runs down one side.
 Why it works: the answer describes the damage. Asking the learner to apologise and arrange a
 replacement would add a separate conversation after the target has been used.
+
+reconnect: You stopped talking to an old friend years ago and now you are in touch again. How would you describe getting back in contact?
+Starter: After all that time...
+Sample: After all that time, I reached out and we reconnected over coffee. It felt like no time had
+passed.
+Why it works: the situation implies the answer without naming it. "How did you reconnect?" or
+"To reconnect, I..." reveals the target and must be rewritten.
 
 among: How would you divide the picnic preparation jobs within a group of four friends?
 Starter: I'd divide the jobs...
