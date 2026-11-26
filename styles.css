@@ -141,38 +141,11 @@ h1 { max-width: 18ch; font-family: var(--display); font-size: clamp(38px, 4.3vw,
 .preview-chips li:nth-child(3n + 1) { background: var(--yellow-soft); border-color: #e4d78d; color: #66501a; transform: rotate(-2deg); }
 .preview-chips li:nth-child(3n + 2) { background: var(--blue-soft); border-color: #c2ccef; color: var(--blue); transform: rotate(2deg); }
 
-/* Preparing state: little footprints wander around the word cards while prompts are generated. */
-.preview-chips-wrap { position: relative; margin: 35px 0; }
-.preview-chips-wrap .preview-chips { margin: 0; }
-.footsteps { position: absolute; inset: -12px -6px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
-.preview-view.is-preparing .footsteps { opacity: 1; }
-.footsteps span { position: absolute; width: 12px; height: 17px; border-radius: 55% 55% 45% 45% / 65% 65% 35% 35%; background: var(--green-dark); opacity: 0; }
-.footsteps span::after { content: ""; position: absolute; left: 50%; bottom: -6px; width: 8px; height: 7px; border-radius: 50%; background: inherit; translate: -50% 0; }
-.preview-view.is-preparing .footsteps span { animation: footstep 6.5s ease-in-out infinite; }
-/* The trail walks just outside the cluster of word cards. */
-.preview-view.is-preparing .footsteps span:nth-child(1) { left: 3%; top: -18px; rotate: -12deg; animation-delay: 0s; }
-.preview-view.is-preparing .footsteps span:nth-child(2) { left: 20%; top: -23px; rotate: 10deg; animation-delay: .5s; }
-.preview-view.is-preparing .footsteps span:nth-child(3) { left: 37%; top: -18px; rotate: -10deg; animation-delay: 1s; }
-.preview-view.is-preparing .footsteps span:nth-child(4) { left: 54%; top: -23px; rotate: 10deg; animation-delay: 1.5s; }
-.preview-view.is-preparing .footsteps span:nth-child(5) { left: 71%; top: -18px; rotate: -10deg; animation-delay: 2s; }
-.preview-view.is-preparing .footsteps span:nth-child(6) { left: 88%; top: -14px; rotate: 8deg; animation-delay: 2.5s; }
-.preview-view.is-preparing .footsteps span:nth-child(7) { right: -10px; top: 40%; rotate: 12deg; animation-delay: 3s; }
-.preview-view.is-preparing .footsteps span:nth-child(8) { left: 84%; bottom: -22px; rotate: -10deg; animation-delay: 3.5s; }
-.preview-view.is-preparing .footsteps span:nth-child(9) { left: 67%; bottom: -17px; rotate: 10deg; animation-delay: 4s; }
-.preview-view.is-preparing .footsteps span:nth-child(10) { left: 50%; bottom: -22px; rotate: -10deg; animation-delay: 4.5s; }
-.preview-view.is-preparing .footsteps span:nth-child(11) { left: 33%; bottom: -17px; rotate: 10deg; animation-delay: 5s; }
-.preview-view.is-preparing .footsteps span:nth-child(12) { left: 14%; bottom: -21px; rotate: -12deg; animation-delay: 5.5s; }
-.preview-view.is-preparing .footsteps span:nth-child(13) { left: -9px; top: 48%; rotate: 12deg; animation-delay: 6s; }
+/* Preparing state: the word cards bob gently while prompts are generated. */
 .preview-view.is-preparing .preview-chips li { animation: chip-bob 3.2s ease-in-out infinite; }
 .preview-view.is-preparing .preview-chips li:nth-child(2n) { animation-delay: .4s; }
 .preview-view.is-preparing .preview-chips li:nth-child(3n) { animation-delay: .9s; }
 .preview-view.is-preparing .preview-chips li:nth-child(4n) { animation-delay: 1.3s; }
-@keyframes footstep {
-  0% { opacity: 0; translate: 0 3px; }
-  6% { opacity: .55; translate: 0 0; }
-  16% { opacity: .55; translate: 0 -1px; }
-  26%, 100% { opacity: 0; translate: 0 2px; }
-}
 @keyframes chip-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
 .preview-main .action-button { margin-top: 28px; min-width: 150px; }
 #ready-button[aria-busy="true"] { color: white; background: var(--blue); }
@@ -180,8 +153,6 @@ h1 { max-width: 18ch; font-family: var(--display); font-size: clamp(38px, 4.3vw,
 @keyframes ready-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
   #ready-button[aria-busy="true"]::before { animation: none; }
-  .preview-view.is-preparing .footsteps { opacity: 0; }
-  .preview-view.is-preparing .footsteps span,
   .preview-view.is-preparing .preview-chips li { animation: none; }
 }
 .training-view { min-height: calc(100svh - 128px); padding: 26px 0 26px; }
