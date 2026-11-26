@@ -163,7 +163,6 @@ toastClose.addEventListener("click", dismissWordToast);
 wordImporter.addEventListener("submit", handleWordImport);
 addAndShareButton.addEventListener("click", handleAddAndShare);
 wordInput.addEventListener("input", () => renderImportControls());
-vocabularyList.addEventListener("change", handleVocabularyEdit);
 vocabularyList.addEventListener("click", handleVocabularyClick);
 practiceButton.addEventListener("click", () => startSession());
 readyButton.addEventListener("click", beginPractice);
@@ -749,33 +748,6 @@ function addVocabularyItems(textItems) {
   return newItems.length;
 }
 
-function handleVocabularyEdit(event) {
-  const input = event.target.closest(".vocabulary-word-input");
-  if (!input) {
-    return;
-  }
-
-  const item = state.vocabularyItems.find((candidate) => candidate.id === input.dataset.itemId);
-  if (!item) {
-    return;
-  }
-
-  const nextText = normalizeVocabularyText(input.value);
-  const duplicate = state.vocabularyItems.some(
-    (candidate) => candidate.id !== item.id && normalizedKey(candidate.text) === normalizedKey(nextText)
-  );
-  if (!nextText || duplicate || !isEnglishInput(nextText)) {
-    input.value = item.text;
-    showSessionError(duplicate ? "That item is already in your library." : "Use an English word or phrase.");
-    return;
-  }
-
-  item.text = nextText;
-  hideSessionError();
-  saveVocabularyItems();
-  renderHome();
-}
-
 function handleVocabularyClick(event) {
   const removeButton = event.target.closest("[data-remove-item]");
   if (!removeButton) {
@@ -868,17 +840,13 @@ function createVocabularyRow(item) {
 
   const main = document.createElement("div");
   main.className = "vocabulary-item-main";
-  const input = document.createElement("input");
-  input.className = "vocabulary-word-input";
-  input.type = "text";
-  input.value = item.text;
-  input.maxLength = 80;
-  input.dataset.itemId = item.id;
-  input.setAttribute("aria-label", `Edit ${item.text}`);
+  const word = document.createElement("span");
+  word.className = "vocabulary-word";
+  word.textContent = item.text;
   const meta = document.createElement("span");
   meta.className = "vocabulary-meta";
   meta.textContent = itemMeta(item);
-  main.append(input, meta);
+  main.append(word, meta);
 
   const actions = document.createElement("div");
   actions.className = "vocabulary-item-actions";
