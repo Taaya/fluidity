@@ -96,7 +96,14 @@
         <p class="eyebrow">Before you begin</p>
         <h1>Let’s give these words a voice.</h1>
         <p class="lead">Review these words and phrases. Then use them to answer the questions out loud.</p>
-        <ul class="preview-chips" id="preview-chips" aria-label="Words in this session"></ul>
+        <div class="preview-chips-wrap">
+          <ul class="preview-chips" id="preview-chips" aria-label="Words in this session"></ul>
+          <div class="footsteps" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+          </div>
+        </div>
         <p class="lead preview-note">You can reveal the word during practice.</p>
         <p class="session-error" id="preview-error" role="alert" hidden></p>
         <button class="action-button primary" id="ready-button" type="button" aria-live="polite">Ready</button>

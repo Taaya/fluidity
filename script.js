@@ -376,6 +376,7 @@ function beginPractice() {
 
 function renderReadyButton() {
   const waiting = state.loading && state.preparation?.readyRequested;
+  previewView.classList.toggle("is-preparing", Boolean(waiting));
   readyButton.disabled = Boolean(waiting);
   readyButton.setAttribute("aria-busy", String(Boolean(waiting)));
   readyButton.textContent = waiting ? "Preparing…" : state.preparation?.error ? "Try again" : "Ready";
