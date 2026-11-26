@@ -52,6 +52,9 @@ const wordImporter = document.getElementById("word-importer");
 const wordInput = document.getElementById("word-input");
 const inputStatus = document.getElementById("input-status");
 const addWordButton = document.getElementById("add-word-button");
+const addAndShareButton = document.getElementById("add-and-share-button");
+const shareLink = document.getElementById("share-link");
+const shareLinkInput = document.getElementById("share-link-input");
 const sessionError = document.getElementById("session-error");
 const practiceButton = document.getElementById("practice-button");
 const practiceButtonLabel = document.getElementById("practice-button-label");
@@ -158,6 +161,7 @@ document.getElementById("restore-vocabulary-button").addEventListener("click", r
 toastClose.addEventListener("click", dismissWordToast);
 
 wordImporter.addEventListener("submit", handleWordImport);
+addAndShareButton.addEventListener("click", handleAddAndShare);
 wordInput.addEventListener("input", () => renderImportControls());
 vocabularyList.addEventListener("change", handleVocabularyEdit);
 vocabularyList.addEventListener("click", handleVocabularyClick);
@@ -215,6 +219,9 @@ function rememberOnboardingSeen() {
 }
 
 function showFirstVisitOnboarding() {
+  // A shared link is the entry point; the recipient should reach the prefilled
+  // input directly instead of dismissing an introduction first.
+  if (readSharedWords(window.location.hash).status !== "none") return;
   try {
     if (window.localStorage.getItem(onboardingSeenStorageKey)) return;
   } catch {
@@ -224,6 +231,7 @@ function showFirstVisitOnboarding() {
 }
 
 document.addEventListener("DOMContentLoaded", showFirstVisitOnboarding);
+document.addEventListener("DOMContentLoaded", applySharedWords);
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") {
@@ -596,19 +604,12 @@ function populateWordList(container, items, emptyText) {
 
 function handleWordImport(event) {
   event.preventDefault();
-  const value = wordInput.value.trim();
-  if (!canSubmitImport(value)) {
+  const parsedItems = readWordImport();
+  if (!parsedItems) {
     return;
   }
 
-  const parsedItems = parseVocabularyInput(value);
-  const addedCount = addVocabularyItems(parsedItems);
-  wordInput.value = "";
-  renderImportControls(
-    addedCount > 0
-      ? ""
-      : "Those words are already in your library."
-  );
+  const addedCount = addImportedWords(parsedItems);
   if (addedCount > 0) {
     showWordToast(addedCount);
   } else {
@@ -616,9 +617,69 @@ function handleWordImport(event) {
   }
 }
 
+// Add and Share adds the words like Add words, then shares the parsed input list.
+// Read the list before the add action clears the field, and share only what the
+// learner entered, not the rest of their library.
+async function handleAddAndShare() {
+  const parsedItems = readWordImport();
+  if (!parsedItems) {
+    return;
+  }
+
+  const link = createShareLink(parsedItems, window.location);
+  const addedCount = addImportedWords(parsedItems);
+  shareLink.hidden = true;
+  if (await copyToClipboard(link)) {
+    showToast(addedCount > 0
+      ? `You added ${addedCount} new ${pluralize(addedCount, "word", "words")}. Link copied.`
+      : "Link copied. Those words were already in your library.");
+    return;
+  }
+
+  shareLinkInput.value = link;
+  shareLink.hidden = false;
+  shareLinkInput.focus({ preventScroll: true });
+  shareLinkInput.select();
+  if (addedCount > 0) {
+    showWordToast(addedCount);
+  } else {
+    dismissWordToast();
+  }
+}
+
+function readWordImport() {
+  const value = wordInput.value.trim();
+  return canSubmitImport(value) ? parseVocabularyInput(value) : null;
+}
+
+function addImportedWords(parsedItems) {
+  const addedCount = addVocabularyItems(parsedItems);
+  wordInput.value = "";
+  renderImportControls(
+    addedCount > 0
+      ? ""
+      : "Those words are already in your library."
+  );
+  return addedCount;
+}
+
+async function copyToClipboard(text) {
+  try {
+    if (!navigator.clipboard?.writeText) return false;
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function showWordToast(count) {
+  showToast(`You added ${count} new ${pluralize(count, "word", "words")}!`);
+}
+
+function showToast(message) {
   window.clearTimeout(toastTimer);
-  wordToastMessage.textContent = `You added ${count} new ${pluralize(count, "word", "words")}!`;
+  wordToastMessage.textContent = message;
   wordToast.hidden = false;
   toastTimer = window.setTimeout(dismissWordToast, 4000);
 }
@@ -880,6 +941,29 @@ function renderImportControls(message = "") {
   inputStatus.classList.toggle("is-error", isTooLong || invalidLanguage);
   addWordButton.textContent = parsedCount === 1 ? "Add word" : "Add words";
   addWordButton.disabled = !canSubmitImport(trimmed);
+  addAndShareButton.disabled = addWordButton.disabled;
+}
+
+// Opening a shared link only prefills the existing input. The recipient adds the
+// words with Add words, so their library, progress and duplicates behave as usual.
+function applySharedWords() {
+  const shared = readSharedWords(window.location.hash);
+  if (shared.status === "none") return;
+  // The fragment is a one-time hand-off: keep the address clean so a reload never
+  // replaces the recipient's own edits.
+  window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  if (shared.status === "invalid" || !isShareableList(shared.words)) {
+    showSessionError("That shared link couldn’t be read. Ask for a new link.");
+    return;
+  }
+  wordInput.value = shared.words.join("\n");
+  renderImportControls("Shared words are ready. Press Add words to save them.");
+}
+
+function isShareableList(words) {
+  return words.length <= 50
+    && words.join("\n").length <= inputCharacterLimit
+    && words.every((text) => text.length <= 80 && isEnglishInput(text));
 }
 
 function canSubmitImport(value) {

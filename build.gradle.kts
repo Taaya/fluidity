@@ -51,7 +51,7 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.processResources {
     from(projectDir) {
-        include("index.html", "add-words.html", "styles.css", "script.js", "prompt-history.js", "assets/**")
+        include("index.html", "add-words.html", "styles.css", "script.js", "prompt-history.js", "share-words.js", "assets/**")
         into("public")
     }
 }

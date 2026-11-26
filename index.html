@@ -49,8 +49,15 @@
               ></textarea>
               <div class="word-input-footer">
                 <span class="input-status" id="input-status">0/1000</span>
-                <button class="inline-add-button" id="add-word-button" type="submit" disabled>Add words</button>
+                <div class="word-input-actions">
+                  <button class="inline-add-button" id="add-word-button" type="submit" disabled>Add words</button>
+                  <button class="inline-add-button inline-share-button" id="add-and-share-button" type="button" disabled>Add and Share</button>
+                </div>
               </div>
+            </div>
+            <div class="share-link" id="share-link" hidden>
+              <label for="share-link-input">Copy this link to send your words to another learner.</label>
+              <input class="share-link-input" id="share-link-input" type="text" readonly>
             </div>
           </form>
           <p class="session-error" id="session-error" role="alert" hidden></p>
@@ -251,6 +258,7 @@
   </div>
 
   <script src="prompt-history.js"></script>
+  <script src="share-words.js"></script>
   <script src="assets/share-progress.js"></script>
   <script src="script.js"></script>
 </body>

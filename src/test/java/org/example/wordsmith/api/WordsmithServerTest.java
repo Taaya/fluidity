@@ -75,6 +75,9 @@ class WordsmithServerTest {
             var asset = send(app.port(), "GET", "/prompt-history.js", "alice", "");
             assertEquals(200, asset.statusCode());
             assertTrue(asset.body().contains("createPromptHistory"));
+            var shareAsset = send(app.port(), "GET", "/share-words.js", "alice", "");
+            assertEquals(200, shareAsset.statusCode());
+            assertTrue(shareAsset.body().contains("createShareLink"));
             assertTrue(send(app.port(), "GET", "/", "alice", "").body().contains("Reveal word"));
         }
     }
